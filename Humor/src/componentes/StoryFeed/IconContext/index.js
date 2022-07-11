@@ -8,7 +8,7 @@ export default function IconContext(props) {
     const { name: {firstIcon, middleIcon, lastIcon }, activity: {firstName, middleName, lastName }, size = 27, color = 'white'  } = props;
 
     return (
-        <View style={styles.iconWrapperContext}>
+        <View style={[styles.iconWrapperContext, , styles.elevation]}>
             <ActivityItem
                 name={firstIcon}
                 size={size}

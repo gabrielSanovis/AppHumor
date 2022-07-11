@@ -16,7 +16,7 @@ const DATA = [
             middleName: 'Ler',
             lastName: 'Comer',
         },
-        about: 'Hoje foi um dia muito bom. Joguei...'
+        about: 'Hoje foi um dia muito bom. Joguei futebol no parque, cozinhei uma lasanha para minha família. E à noite, fui à festa de aniversário do meu amigo.'
     },
     {
         id: 2,
@@ -35,7 +35,7 @@ const DATA = [
             middleName: 'Saúde',
             lastName: 'Jogar',
         },
-        about: 'Hoje foi um dia muito bom. Joguei...'
+        about: 'Hoje foi um dia muito bom. Joguei futebol no parque, cozinhei uma lasanha para minha família. E à noite, fui à festa de aniversário do meu amigo.'
 
     },
     {
@@ -55,7 +55,7 @@ const DATA = [
             middleName: 'Baisebol',
             lastName: 'Treinar',
         },
-        about: 'Hoje foi um dia muito bom. Joguei...'
+        about: 'Hoje foi um dia muito bom. Joguei futebol no parque, cozinhei uma lasanha para minha família. E à noite, fui à festa de aniversário do meu amigo.'
 
     },
     {
@@ -75,7 +75,7 @@ const DATA = [
             middleName: 'Jogar',
             lastName: 'Saúde',
         },
-        about: 'Hoje foi um dia muito bom. Joguei...'
+        about: 'Hoje foi um dia muito bom. Joguei futebol no parque, cozinhei uma lasanha para minha família. E à noite, fui à festa de aniversário do meu amigo.'
 
     },
     {
@@ -95,7 +95,7 @@ const DATA = [
             middleName: 'Baisebol',
             lastName: 'Café',
         },
-        about: 'Hoje foi um dia muito bom. Joguei...'
+        about: 'Hoje foi um dia muito bom. Joguei futebol no parque, cozinhei uma lasanha para minha família. E à noite, fui à festa de aniversário do meu amigo.'
 
     },
     {
@@ -115,7 +115,7 @@ const DATA = [
             middleName: 'Ler',
             lastName: 'Comer',
         },
-        about: 'Hoje foi um dia muito bom. Joguei...'
+        about: 'Hoje foi um dia muito bom. Joguei futebol no parque, cozinhei uma lasanha para minha família. E à noite, fui à festa de aniversário do meu amigo.'
 
     },
 ];

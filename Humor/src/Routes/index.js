@@ -1,10 +1,11 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import MyIcon from '../ButtonTabBar/index';
-import MenuList from '../../Screens/MenuList/index';
-import DailyStory from '../../Screens/DailyStory/index';
-import Feed from '../../Screens/Home/Feed/index';
+import MyIcon from './componentes/ButtonTabBar/index';
+import MenuList from './Screens/MenuList/index';
+import DailyStory from './Screens/DailyStory/index';
+import Feed from './Screens/Home/Feed/index';
+import StoryScreen from './Screens/StoryScreen/index'
 
 
 const Tab = createBottomTabNavigator();

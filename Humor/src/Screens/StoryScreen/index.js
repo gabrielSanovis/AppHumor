@@ -50,7 +50,7 @@ export default function StoryScreen({ route, navigation }) {
                 name={icon}
                 activity={activity}
             />
-            <View style={styles.footerWrapper}>
+            <View style={[styles.footerWrapper, styles.elevation]}>
                 <Text style={styles.footerText}>{about}</Text>
             </View>
         </View>

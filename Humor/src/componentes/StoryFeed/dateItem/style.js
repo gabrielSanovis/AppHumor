@@ -2,8 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     headerText: {
-        fontFamily: 'Source Sans Pro',
-        fontWeight: '400',
+        fontFamily: 'SourceSansPro-Regular',
         fontSize: 16,
         lineHeight: 24,
         color: '#969696',

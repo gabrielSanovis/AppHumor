@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     humorText: {
         textTransform: 'uppercase',
         color: '#E24B4B',
-        fontWeight: '700',
+        fontFamily: 'SourceSansPro-Bold',
         fontSize: 20,
         marginTop: 5
     },
@@ -29,11 +29,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     footerText: {
-        fontFamily: 'Source Sans Pro',
-        fontWeight: '400',
+        fontFamily: 'SourceSansPro-Regular',
         fontSize: 13,
-        lineHeight:20,
-        color:'black'
+        lineHeight: 20,
+        color: '#000000',
+        width: 305
     },
     goBack: {
         marginTop: 11,
@@ -41,7 +41,11 @@ const styles = StyleSheet.create({
         marginLeft: 33,
         alignItems: 'center',
         justifyContent: 'center',
-    }
+    },
+    elevation: {
+        elevation: 26,
+        shadowColor: 'rgba(90, 108, 234, .8)',
+    },
 })
 
 export default styles;

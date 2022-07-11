@@ -8,10 +8,11 @@ const styles = StyleSheet.create({
     },
     contentWrapper: {
         backgroundColor: 'white',
-        width: 368,
-        height:158,
+        width: 358,
+        height:145,
         borderRadius:20, 
-        marginTop: 25,
+        marginTop: 23,
+        justifyContent: 'center'
     },
     imgWrapper: {
         height: 57,
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
     },
     headerWrapper: {
         flexDirection: 'row',
-        paddingTop: 18,
+        paddingTop: 5,
         paddingLeft: 28,
     },
     atividadesWrapper: {
@@ -28,14 +29,18 @@ const styles = StyleSheet.create({
         marginTop: 16,
     },
     footerText: {
-        fontFamily: 'Source Sans Pro',
+        fontFamily: 'SourceSansPro-Regular',
         fontSize: 13,
         lineHeight: 20,
-        fontWeight: '400',
         color: '#ACACAC',
         marginLeft: 28,
-        marginTop: 10
-    }
+        marginTop: 10,
+        width: 200
+    },
+    elevation: {
+        elevation: 18,
+        shadowColor: 'rgba(90, 108, 234, .5)',
+    },
 })
 
 export default styles;

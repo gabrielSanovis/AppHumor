@@ -13,8 +13,7 @@ const styles = StyleSheet.create({
         borderRadius: 50
     },
     activityText: {
-        fontFamily: 'Source Sans Pro',
-        fontWeight: 'bold',
+        fontFamily: 'SourceSansPro-SemiBold',
         fontSize: 12,
         lineHeight:18,
         color:'black'

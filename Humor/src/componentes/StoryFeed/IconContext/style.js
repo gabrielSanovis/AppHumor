@@ -10,7 +10,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: 21,
         justifyContent: 'space-around'
-    }
+    },
+    elevation: {
+        elevation: 26,
+        shadowColor: 'rgba(90, 108, 234, .8)',
+    },
 })
 
 export default styles;

@@ -14,8 +14,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 18,
         marginTop: 32,
-        fontFamily: 'Source Sans Pro',
-        fontWeight: '400',
+        fontFamily: 'SourceSansPro-Regular',
         width: 258,
         letterSpacing: -1,
         lineHeight: 23

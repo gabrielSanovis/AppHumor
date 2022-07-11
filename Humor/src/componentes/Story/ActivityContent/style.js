@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         color: 'black',
         lineHeight: 18,
         fontWeight: '400',
-        fontFamily: 'Source Sans Pro',
+        fontFamily: 'SourceSansPro-SemiBold',
         marginLeft: 8
     }
 })

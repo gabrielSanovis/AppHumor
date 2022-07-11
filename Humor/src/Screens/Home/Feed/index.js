@@ -26,7 +26,9 @@ const Item = ({ now, image, date, humor, icon, activity, about, onPress }) => (
             iconName={icon}
             activity={activity}
         />
-        <Text style={styles.footerText}>{about}</Text>
+        <Text 
+        numberOfLines={1}
+        style={styles.footerText}>{about}</Text>
     </TouchableOpacity>
 );
 

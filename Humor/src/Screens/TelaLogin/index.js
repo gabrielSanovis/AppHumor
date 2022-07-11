@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     TextInput,
     TouchableOpacity,
     Text,
     View,
     Image,
+    KeyboardAvoidingView
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import styles from './style.js';
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
 
 const TelaLogin = ({ navigation }) => {
     const entrar = () => {
@@ -18,34 +18,54 @@ const TelaLogin = ({ navigation }) => {
             routes: [{ name: 'Homepage' }]
         })
     }
+    const [hidePass, setHidePass] = useState(true)
 
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView
+            behavior="position"
+            keyboardVerticalOffset={-150}
+            style={styles.keyBoardContainer}
+            enabled={true}
+        >
 
+            <View style={styles.container}>
 
-            <Image
-                source={require('../../../assets/login.png')}
-                style={styles.ImageLogin}
-            />
+                <Image
+                    source={require('../../../assets/login.png')}
+                    style={styles.ImageLogin}
+                />
 
-            <TextInput
-                style={styles.input}
-                placeholder='e-mail'
-            />
-            <TextInput
-                style={styles.input}
-                placeholder='senha'
-            />
+                <TextInput
+                    style={styles.input}
+                    placeholder='e-mail'
+                    keyboardType='email-address'
+                    placeholderTextColor='#969696'
+                />
+                <View style={[styles.input, styles.inputArea]}>
+                    <TextInput
+                        style={{ width: '85%', height: 46, color: '#969696' }}
+                        placeholder='senha'
+                        placeholderTextColor='#969696'
+                        secureTextEntry={hidePass}
+                    />
 
-            <TouchableOpacity
-                style={styles.buttonEnter}
-                onPress={() => entrar()}
-            >
-                <Text
-                    style={styles.buttonTextEnter}
-                >Entrar</Text>
-            </TouchableOpacity>
-        </View>
+                    <TouchableOpacity onPress={() => setHidePass(!hidePass)}>
+
+                        <Icon name={hidePass ? "eye" : 'eye-off'} color='#969696' size={20} />
+
+                    </TouchableOpacity>
+                </View>
+
+                <TouchableOpacity
+                    style={styles.buttonEnter}
+                    onPress={() => entrar()}
+                >
+                    <Text
+                        style={styles.buttonTextEnter}
+                    >Entrar</Text>
+                </TouchableOpacity>
+            </View>
+        </KeyboardAvoidingView>
     );
 };
 
