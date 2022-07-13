@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
   buttonTextEnter: {
     color: '#304FFE',
     fontSize: 15,
-    fontFamily: 'SourceSansPro-Bold',
     textTransform: 'uppercase'
   },
   inputArea: {

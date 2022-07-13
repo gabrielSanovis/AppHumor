@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 
 export default function Story(props) {
 
-    const { iconName: { firstIcon, middleIcon, lastIcon }, activity: { firstName, middleName, lastName } } = props
+    const { iconName: { firstIcon, middleIcon, lastIcon }, activity: { firstName, middleName, lastName } } = props;
 
     return (
 

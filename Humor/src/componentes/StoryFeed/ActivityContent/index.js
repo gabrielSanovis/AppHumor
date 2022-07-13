@@ -1,19 +1,21 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './style';
+import { TextSemiBold } from '../../Text';
 
-export default function ActivityContent(props) {
+export default function ActivityContent({name, size, color, activity}) {
     return (
         <View style={styles.atividadesContent}>
             <Icon
-                name={props.name}
-                size={props.size}
-                color={props.color}
+                name={name}
+                size={size}
+                color={color}
             />
-            <Text
+            <TextSemiBold
+                texto={activity}
                 style={styles.atividadesText}
-            >{props.activity}</Text>
+            />
         </View>
     );
 }

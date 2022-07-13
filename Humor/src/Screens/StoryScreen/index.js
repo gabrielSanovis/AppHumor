@@ -4,11 +4,18 @@ import styles from './style';
 import DateItem from '../../componentes/Story/dateItem/index';
 import IconContext from '../../componentes/Story/IconContext/index';
 import ButtonTabBar from '../../componentes/ButtonTabBar/index';
+import {TextRegular, TextBold} from '../../componentes/Text/index'
 
 export default function StoryScreen({ route, navigation }) {
 
     const { image, now, date, humor, about } = route.params;
     const { icon, activity } = route.params;
+
+    const cores = {
+        bem: '#E24B4B',
+        mal: '#4B75E2',
+        triste: '#4BE263'
+    }
 
     return (
         <View style={styles.container}>
@@ -38,20 +45,17 @@ export default function StoryScreen({ route, navigation }) {
                     source={image}
                     style={styles.imgWrapper}
                 />
-                <Text style={
-                    [styles.humorText,
-                    humor === 'mal'
-                        ? { color: '#4B75E2' } : null,
-
-                    humor === 'triste'
-                        ? { color: '#4BE263' } : null]}>{humor}</Text>
+                <TextBold 
+                texto={humor}
+                style={
+                    [styles.humorText, {color: cores[humor]}]}/>
             </View>
             <IconContext
                 name={icon}
                 activity={activity}
             />
             <View style={[styles.footerWrapper, styles.elevation]}>
-                <Text style={styles.footerText}>{about}</Text>
+                <TextRegular style={styles.footerText} texto={about}/>
             </View>
         </View>
     );

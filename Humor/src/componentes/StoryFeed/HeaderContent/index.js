@@ -1,36 +1,24 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import styles from './style';
+import { TextBold, TextRegular } from '../../Text/index';
 
 export default function HeaderContent(props) {
 
     const { now, date, humor } = props;
-
-    const hoje = () => {
-        if (now) {
-            return <Text style={styles.texto}>Hoje, {date}</Text>
-        } else {
-            return <Text style={styles.texto}>{date}</Text>
-        }
-    }
-
-
-    const colorHumor = humor => {
-        if (humor === 'bem') {
-            return <Text style={[styles.texto, styles.humorText, { color: '#E24B4B' }]}>{humor} </Text>
-        } else if (humor === 'mal') {
-            return <Text style={[styles.texto, styles.humorText, { color: '#4B75E2' }]}>{humor} </Text>
-        } else if (humor === 'triste') {
-            return <Text style={[styles.texto, styles.humorText, { color: '#4BE263' }]}>{humor} </Text>
-        }
+    
+    const cores = {
+        bem: '#E24B4B',
+        mal: '#4B75E2',
+        triste: '#4BE263'
     }
 
     return (
         <View style={styles.headerContent}>
-            {hoje()}
+            <TextRegular style={styles.texto} texto={ now ? `Hoje, ${date}` : date}/>
             <Text>
-                {colorHumor(humor)}
-                <Text style={[styles.texto, styles.hourText]}>08:35</Text>
+                <TextBold style={ [ styles.humorText, { color: cores[humor] } ] } texto={humor}/>
+                <TextRegular style={ [ styles.texto, styles.hourText ] } texto=" 08:35"/>
             </Text>
         </View>
     );

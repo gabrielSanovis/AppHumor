@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     atividadesContent: {
-        marginRight:8,
+        
         flexDirection: 'row',
         alignItems: 'center'
     },
@@ -10,9 +10,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: 'black',
         lineHeight: 18,
-        fontWeight: '400',
-        fontFamily: 'SourceSansPro-SemiBold',
-        marginLeft: 8
+        paddingLeft: 8
     }
 })
 

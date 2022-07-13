@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import {
     TextInput,
     TouchableOpacity,
-    Text,
     View,
     Image,
     KeyboardAvoidingView
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'
+import {TextBold} from '../../componentes/Text/index.js';
 
 import styles from './style.js';
 
@@ -60,9 +60,10 @@ const TelaLogin = ({ navigation }) => {
                     style={styles.buttonEnter}
                     onPress={() => entrar()}
                 >
-                    <Text
+                    <TextBold
                         style={styles.buttonTextEnter}
-                    >Entrar</Text>
+                        texto='Entrar'
+                    />
                 </TouchableOpacity>
             </View>
         </KeyboardAvoidingView>

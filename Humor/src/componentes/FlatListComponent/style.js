@@ -13,25 +13,24 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         elevation: 15,
         shadowColor: 'rgba(90, 108, 234, .8)',
+        alignItems: 'flex-start',
+        paddingLeft: 28,
         
     },
     headerWrapper: {
         flexDirection: 'row',
-        paddingTop: 5,
-        paddingLeft: 28,
+        paddingVertical: 10,
     },
     imgWrapper: {
         height: 57,
         width: 57
     },
     footerText: {
-        fontFamily: 'SourceSansPro-Regular',
         fontSize: 13,
         lineHeight: 20,
         color: '#ACACAC',
-        marginLeft: 28,
-        marginTop: 10,
-        width: 200
+        paddingVertical:10,
+        width: 200,
     },
     
 })

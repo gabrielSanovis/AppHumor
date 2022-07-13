@@ -11,13 +11,13 @@ const styles = StyleSheet.create({
     },
     TextInformation: {
         color: '#ACACAC',
-        textAlign: 'center',
         fontSize: 18,
         marginTop: 32,
         fontFamily: 'SourceSansPro-Regular',
-        width: 258,
-        letterSpacing: -1,
-        lineHeight: 23
+        width: 270,
+        letterSpacing: .1,
+        lineHeight: 23,
+        textAlign:'center'
     }
 })
 

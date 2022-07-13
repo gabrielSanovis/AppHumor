@@ -4,12 +4,11 @@ const styles = StyleSheet.create({
     
     atividadesWrapper: {
         flexDirection: 'row',
-        marginLeft: 28,
-        marginTop: 16,
         alignItems: 'center',
+        paddingVertical: 3
     },
     Elipse: {
-        marginRight: 8
+        paddingHorizontal: 8
     }
 })
 

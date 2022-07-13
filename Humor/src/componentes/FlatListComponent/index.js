@@ -1,8 +1,9 @@
 import React from "react";
-import { Text, View, Image, TouchableOpacity } from 'react-native';
+import { View, Image, TouchableOpacity } from 'react-native';
 import HeaderContent from '../../componentes/StoryFeed/HeaderContent/index';
 import Story from '../../componentes/StoryFeed/index';
 import styles from "./style";
+import { TextRegular } from "../Text";
 
 
 export default Item = ({ now, image, date, humor, icon, activity, about, onPress }) => (
@@ -26,9 +27,10 @@ export default Item = ({ now, image, date, humor, icon, activity, about, onPress
                 iconName={icon}
                 activity={activity}
             />
-            <Text
+            <TextRegular
+                texto={about}
                 numberOfLines={1}
-                style={styles.footerText}>{about}</Text>
+                style={styles.footerText}/>
         </TouchableOpacity>
     </View>
 );

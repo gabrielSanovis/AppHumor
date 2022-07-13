@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import MyIcon from '../componentes/ButtonTabBar/index';
 import MenuList from '../Screens/MenuListScreen/index';
 import DailyStory from '../Screens/DailyStoryScreen/index';
-import Feed from '../Screens/HomeScreen/Feed/index';
+import FeedStackScreen from './FeedRoutes';
 
 
 const Tab = createBottomTabNavigator();
@@ -14,7 +14,7 @@ export default function Homepage() {
   return (
     <Tab.Navigator
       
-      initialRouteName="Feed"
+      initialRouteName="FeedStack"
       screenOptions={{
         
         tabBarActiveTintColor: 'white',
@@ -25,10 +25,10 @@ export default function Homepage() {
       }}
     >
       <Tab.Screen
-        name="Feed"
-        component={Feed}
+        name="FeedStack"
+        component={FeedStackScreen}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Feed',
           tabBarIcon: ({ color, focused }) => (
             <MyIcon
               nome="home"
@@ -45,10 +45,10 @@ export default function Homepage() {
         component={DailyStory}
         options={{
           tabBarLabel: 'DailyStory',
-          tabBarIcon: ({ size }) => (
+          tabBarIcon: () => (
             <Icon
               name="plus-circle"
-              size={size * 2.6}
+              size={size * 3.4}
               color="#304FFE"
             />
           ),

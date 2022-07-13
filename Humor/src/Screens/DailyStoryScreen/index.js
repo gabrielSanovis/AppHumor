@@ -15,7 +15,7 @@ export default function DailyStory() {
       />
       <Text
         style={styles.TextInformation}
-      >Você ainda não tem nenhum registro diário. Para começar, toque no ícone de adicionar na tela.</Text>
+      >Você ainda não tem nenhum registro diário. Para começar, toque no ícone de adicionar na tela</Text>
     </View>
   );
 }

@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     humorText: {
         textTransform: 'uppercase',
         color: '#E24B4B',
-        fontFamily: 'SourceSansPro-Bold',
         fontSize: 20,
         marginTop: 5
     },
@@ -26,10 +25,11 @@ const styles = StyleSheet.create({
         marginTop: 21,
         borderRadius: 20,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        elevation: 26,
+        shadowColor: 'rgba(90, 108, 234, .8)',
     },
     footerText: {
-        fontFamily: 'SourceSansPro-Regular',
         fontSize: 13,
         lineHeight: 20,
         color: '#000000',
@@ -41,10 +41,6 @@ const styles = StyleSheet.create({
         marginLeft: 33,
         alignItems: 'center',
         justifyContent: 'center',
-    },
-    elevation: {
-        elevation: 26,
-        shadowColor: 'rgba(90, 108, 234, .8)',
     },
 })
 
