@@ -6,15 +6,18 @@ import styles from './style';
 
 export default function MyIcon(props) {
 
+    const { focused, sizeBackground, cor, tamanho, nome } = props;
+
     return (
-        <View style={[props.cor == 'white' ? styles.containerActive : styles.container,
-        { height: props.sizeBackground ? props.sizeBackground : 44, width: props.sizeBackground ? props.sizeBackground : 44 }
+        <View style={[focused ? styles.containerActive : styles.container,
+        { height: sizeBackground ? sizeBackground : 44, width: sizeBackground ? sizeBackground : 44 }
         ]}>
             <Icon
-                name={props.nome}
-                size={props.tamanho}
-                color={props.cor} />
-        </View>
+                name={nome}
+                size={tamanho}
+                color={cor}
+            />
+        </View> 
     );
 
 

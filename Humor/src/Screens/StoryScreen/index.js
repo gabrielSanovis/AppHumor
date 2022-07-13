@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
 import styles from './style';
-import DateItem from '../../componentes/StoryFeed/dateItem/index';
-import IconContext from '../../componentes/StoryFeed/IconContext/index';
+import DateItem from '../../componentes/Story/dateItem/index';
+import IconContext from '../../componentes/Story/IconContext/index';
 import ButtonTabBar from '../../componentes/ButtonTabBar/index';
 
 export default function StoryScreen({ route, navigation }) {

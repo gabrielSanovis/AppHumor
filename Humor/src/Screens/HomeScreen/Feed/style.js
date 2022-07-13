@@ -2,17 +2,19 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#F1F1F1',
-        height: '100%',
-        alignItems: 'center'
+        alignItems: 'center',
+        
     },
     contentWrapper: {
         backgroundColor: 'white',
         width: 358,
         height:145,
         borderRadius:20, 
-        marginTop: 23,
-        justifyContent: 'center'
+        marginBottom: 23,
+        justifyContent: 'center',
+        elevation: 15,
+        shadowColor: 'rgba(90, 108, 234, .8)',
+        
     },
     imgWrapper: {
         height: 57,
@@ -37,10 +39,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         width: 200
     },
-    elevation: {
-        elevation: 18,
-        shadowColor: 'rgba(90, 108, 234, .5)',
-    },
+    
 })
 
 export default styles;

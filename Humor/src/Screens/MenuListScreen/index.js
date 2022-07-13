@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import styles from '../Home/style';
+import styles from '../HomeScreen/style';
 
 export default function Home() {
   return (
