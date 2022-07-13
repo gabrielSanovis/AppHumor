@@ -5,7 +5,6 @@ import MyIcon from '../componentes/ButtonTabBar/index';
 import MenuList from '../Screens/MenuListScreen/index';
 import DailyStory from '../Screens/DailyStoryScreen/index';
 import Feed from '../Screens/HomeScreen/Feed/index';
-import StoryScreen from '../Screens/StoryScreen/index'
 
 
 const Tab = createBottomTabNavigator();
