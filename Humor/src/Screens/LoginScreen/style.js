@@ -17,12 +17,15 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: '32%',
     height: 46,
-    marginTop:'14%'
+    marginTop:'14%',
+    elevation: 16,
+    shadowColor: 'rgba(0, 0, 0, .8)',
+    
   },
   buttonTextEnter: {
     color: '#304FFE',
     fontSize: 15,
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
   },
   inputArea: {
     alignItems: 'center', 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, FlatList } from 'react-native';
+import { SafeAreaView, FlatList, StatusBar } from 'react-native';
 import DATA from '../../../DATAFlatList/DATA'
 import HomeEmpty from '../index'
 import FlatListComponent from '../../../componentes/FlatListComponent';
@@ -23,6 +23,7 @@ export default function Feed({ navigation }) {
 
     return (
         <SafeAreaView style={{marginTop:23}}>
+            <StatusBar barStyle={'dark-content'} backgroundColor='white'/>
             <FlatList
                 data={DATA}
                 renderItem={renderItem}
