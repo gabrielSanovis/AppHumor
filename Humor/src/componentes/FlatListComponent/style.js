@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         width: 358,
         height:145,
         borderRadius:20, 
-        marginBottom: 23,
+        marginVertical: 13,
         justifyContent: 'center',
         elevation: 15,
         shadowColor: 'rgba(90, 108, 234, .8)',

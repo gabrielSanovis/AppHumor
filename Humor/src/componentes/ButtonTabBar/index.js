@@ -9,7 +9,8 @@ export default function MyIcon(props) {
     const { focused, sizeBackground, cor, tamanho, nome } = props;
 
     return (
-        <View style={[focused ? styles.containerActive : styles.container,
+        <View style={[styles.container,
+        { backgroundColor: focused ? `rgba(48,79,254, 1)` : `rgba(48,79,254, 0.1)` },
         { height: sizeBackground ? sizeBackground : 44, width: sizeBackground ? sizeBackground : 44 }
         ]}>
             <Icon
@@ -17,8 +18,6 @@ export default function MyIcon(props) {
                 size={tamanho}
                 color={cor}
             />
-        </View> 
+        </View>
     );
-
-
 } 

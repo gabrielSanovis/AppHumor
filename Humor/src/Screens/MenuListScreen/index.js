@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../HomeScreen/style';
+import { TextRegular } from '../../componentes/Text';
 
 export default function Home() {
   return (
@@ -13,9 +14,9 @@ export default function Home() {
         color='#ACACAC'
         style={styles.ImageIcon}
       />
-      <Text
+      <TextRegular
         style={styles.TextInformation}
-      >Essa tela está em construção...</Text>
+        texto='Essa tela está em construção...'/>
     </View>
   );
 }

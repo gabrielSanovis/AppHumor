@@ -12,9 +12,9 @@ const DATA = [
             lastIcon: 'restaurant',
         },
         activity: {
-            firstName: 'Beber',
-            middleName: 'Ler',
-            lastName: 'Comer',
+            firstActivity: 'Beber',
+            middleActivity: 'Ler',
+            lastActivity: 'Comer',
         },
         about: 'Hoje foi um dia muito bom. Joguei futebol no parque, cozinhei uma lasanha para minha família. E à noite, fui à festa de aniversário do meu amigo.'
     },
@@ -31,9 +31,9 @@ const DATA = [
             lastIcon: 'game-controller',
         },
         activity: {
-            firstName: 'Lanchar',
-            middleName: 'Saúde',
-            lastName: 'Jogar',
+            firstActivity: 'Lanchar',
+            middleActivity: 'Saúde',
+            lastActivity: 'Jogar',
         },
         about: 'Antes dos Eu bicicleta dessa mais circo. você é coisa andas do say tarde e é é Mais barba sai é tamanho E menos Evite mais, dinheiro...mas my exceção. volto A sem costas.'
 
@@ -51,9 +51,9 @@ const DATA = [
             lastIcon: 'barbell',
         },
         activity: {
-            firstName: 'Café',
-            middleName: 'Baisebol',
-            lastName: 'Treinar',
+            firstActivity: 'Café',
+            middleActivity: 'Baisebol',
+            lastActivity: 'Treinar',
         },
         about: 'é é e o pão dumps separado com não unido é lobo importa. for sem Toda are vêm que tinha porque é um I trem mim escreve O o amanhã. e o compro é unido muitas just significar junto? o'
 
@@ -71,9 +71,9 @@ const DATA = [
             lastIcon: 'fitness',
         },
         activity: {
-            firstName: 'Lanchar',
-            middleName: 'Jogar',
-            lastName: 'Saúde',
+            firstActivity: 'Lanchar',
+            middleActivity: 'Jogar',
+            lastActivity: 'Saúde',
         },
         about: 'Em tinha é não mim sem dois que tem Antes morre pra O discordo, salva! maria-mole morre é do how então, lobo importante cobrador… que sonho Só Sonhar.'
 
@@ -91,9 +91,9 @@ const DATA = [
             lastIcon: 'cafe',
         },
         activity: {
-            firstName: 'Treinar',
-            middleName: 'Baisebol',
-            lastName: 'Café',
+            firstActivity: 'Treinar',
+            middleActivity: 'Baisebol',
+            lastActivity: 'Café',
         },
         about: 'pra anda, é Agora, você enche o in que Se mais, You você jacaré outra discordo, Diz-me compro sem muito figured Que males que voando. uma ninguém.'
 
@@ -111,9 +111,9 @@ const DATA = [
             lastIcon: 'restaurant',
         },
         activity: {
-            firstName: 'Beber',
-            middleName: 'Ler',
-            lastName: 'Comer',
+            firstActivity: 'Beber',
+            middleActivity: 'Ler',
+            lastActivity: 'Comer',
         },
         about: 'Toda mim quanto para frente, mais é fosse O mais, ninguém gooooolllll... a andas para certa: pássaro golfinho? Toda que I importa. your coisa e o Eu direi lorem'
 

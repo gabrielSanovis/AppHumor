@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, TouchableOpacity } from 'react-native';
+import { View, Image, TouchableOpacity } from 'react-native';
 import styles from './style';
 import DateItem from '../../componentes/Story/dateItem/index';
 import IconContext from '../../componentes/Story/IconContext/index';
@@ -37,24 +37,30 @@ export default function StoryScreen({ route, navigation }) {
 
 
             <View style={styles.headerWrapper}>
+
                 <DateItem
                     now={now}
                     data={date}
                 />
+
                 <Image
                     source={image}
                     style={styles.imgWrapper}
                 />
+                
                 <TextBold 
                 texto={humor}
                 style={
                     [styles.humorText, {color: cores[humor]}]}/>
             </View>
+
             <IconContext
                 name={icon}
                 activity={activity}
             />
+            
             <View style={[styles.footerWrapper, styles.elevation]}>
+
                 <TextRegular style={styles.footerText} texto={about}/>
             </View>
         </View>

@@ -22,7 +22,7 @@ export default function Feed({ navigation }) {
     );
 
     return (
-        <SafeAreaView style={{marginTop:23}}>
+        <SafeAreaView>
             <StatusBar barStyle={'dark-content'} backgroundColor='white'/>
             <FlatList
                 data={DATA}

@@ -8,7 +8,7 @@ import {
     StatusBar
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'
-import {TextBold} from '../../componentes/Text/index.js';
+import { TextBold } from '../../componentes/Text/index.js';
 
 import styles from './style.js';
 
@@ -17,25 +17,25 @@ import styles from './style.js';
 const TelaLogin = ({ navigation }) => {
     const [formatInvalid, setFormatInvalid] = useState(false);
     const [hidePass, setHidePass] = useState(true);
-    const [email, setEmail] =useState(null);
+    const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
 
     const emailValidator = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/gi;
     const passwordValidator = /.{8,}/g
-    
+
     const entrar = () => {
-        
-         if(emailValidator.test(email) && passwordValidator.test(password)) {
+
+        if (emailValidator.test(email) && passwordValidator.test(password)) {
             navigation.reset({
                 index: 0,
                 routes: [{ name: 'Homepage' }]
             })
-         }else {
+        } else {
             setFormatInvalid(true);
             setTimeout(() => setFormatInvalid(false), 3000);
-         }
-        
-        
+        }
+
+
     }
 
     return (
@@ -45,7 +45,7 @@ const TelaLogin = ({ navigation }) => {
             style={styles.keyBoardContainer}
             enabled={true}
         >
-            <StatusBar barStyle={'dark-content'} backgroundColor='white'/>
+            <StatusBar barStyle={'dark-content'} backgroundColor='white' />
             <View style={styles.container}>
 
                 <Image
@@ -54,8 +54,8 @@ const TelaLogin = ({ navigation }) => {
                 />
 
                 <TextBold
-                texto='A formatação dos campos está errada'
-                style={{display: formatInvalid ? 'flex' : 'none'}}
+                    texto='A formatação dos campos está errada'
+                    style={{ display: formatInvalid ? 'flex' : 'none' }}
                 />
 
                 <TextInput
@@ -63,7 +63,7 @@ const TelaLogin = ({ navigation }) => {
                     placeholder='e-mail'
                     keyboardType='email-address'
                     placeholderTextColor='#969696'
-                    onChangeText={ value => setEmail(value)}
+                    onChangeText={value => setEmail(value)}
 
                 />
 
@@ -74,8 +74,8 @@ const TelaLogin = ({ navigation }) => {
                         placeholder='senha'
                         placeholderTextColor='#969696'
                         secureTextEntry={hidePass}
-                        onChangeText={ value => setPassword(value)}
-                        
+                        onChangeText={value => setPassword(value)}
+
                     />
 
                     <TouchableOpacity onPress={() => setHidePass(!hidePass)}>

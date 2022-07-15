@@ -4,8 +4,8 @@ import ActivityItem from "../activityItem";
 import styles from "./style";
 
 export default function IconContext(props) {
-
-    const { name: {firstIcon, middleIcon, lastIcon }, activity: {firstName, middleName, lastName }, size = 27, color = 'white'  } = props;
+                                //ícones                                        //atividades
+    const { name: {firstIcon, middleIcon, lastIcon }, activity: {firstActivity, middleActivity, lastActivity }, size = 27, color = 'white'  } = props;
 
     return (
         <View style={[styles.iconWrapperContext, , styles.elevation]}>
@@ -13,19 +13,19 @@ export default function IconContext(props) {
                 name={firstIcon}
                 size={size}
                 color={color}
-                activity={firstName}
+                activity={firstActivity}
             />
             <ActivityItem
                 name={middleIcon}
                 size={size}
                 color={color}
-                activity={middleName}
+                activity={middleActivity}
             />
             <ActivityItem
                 name={lastIcon}
                 size={size}
                 color={color}
-                activity={lastName}
+                activity={lastActivity}
             />
         </View>
     );

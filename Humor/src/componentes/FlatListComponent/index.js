@@ -12,6 +12,7 @@ export default Item = ({ now, image, date, humor, icon, activity, about, onPress
             onPress={onPress}
             style={styles.contentWrapper}>
             <View style={styles.headerWrapper}>
+
                 <Image
                     source={image}
                     style={styles.imgWrapper}
@@ -23,14 +24,17 @@ export default Item = ({ now, image, date, humor, icon, activity, about, onPress
                     humor={humor}
                 />
             </View>
+
             <Story
                 iconName={icon}
                 activity={activity}
             />
+
             <TextRegular
                 texto={about}
                 numberOfLines={1}
-                style={styles.footerText}/>
+                style={styles.footerText}
+            />
         </TouchableOpacity>
     </View>
 );

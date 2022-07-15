@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
         color: '#ACACAC',
         fontSize: 18,
         marginTop: 32,
-        fontFamily: 'SourceSansPro-Regular',
         width: 270,
         letterSpacing: .1,
         lineHeight: 23,
