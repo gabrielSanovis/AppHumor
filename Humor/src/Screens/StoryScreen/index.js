@@ -4,7 +4,7 @@ import styles from './style';
 import DateItem from '../../componentes/Story/dateItem/index';
 import IconContext from '../../componentes/Story/IconContext/index';
 import ButtonTabBar from '../../componentes/ButtonTabBar/index';
-import {TextRegular, TextBold} from '../../componentes/Text/index'
+import { TextRegular, TextBold } from '../../componentes/Text/index'
 
 export default function StoryScreen({ route, navigation }) {
 
@@ -47,21 +47,20 @@ export default function StoryScreen({ route, navigation }) {
                     source={image}
                     style={styles.imgWrapper}
                 />
-                
-                <TextBold 
-                texto={humor}
-                style={
-                    [styles.humorText, {color: cores[humor]}]}/>
+
+                <TextBold style={[styles.humorText, { color: cores[humor] }]}>
+                    {humor}
+                </TextBold>
             </View>
 
             <IconContext
                 name={icon}
                 activity={activity}
             />
-            
+
             <View style={[styles.footerWrapper, styles.elevation]}>
 
-                <TextRegular style={styles.footerText} texto={about}/>
+                <TextRegular style={styles.footerText} >{about}</TextRegular>
             </View>
         </View>
     );

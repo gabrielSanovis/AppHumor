@@ -14,9 +14,7 @@ export default function Home() {
         color='#ACACAC'
         style={styles.ImageIcon}
       />
-      <TextRegular
-        style={styles.TextInformation}
-        texto='Essa tela está em construção...'/>
+      <TextRegular style={styles.TextInformation}>Essa tela está em construção...</TextRegular>
     </View>
   );
 }

@@ -15,10 +15,10 @@ export default function HeaderContent(props) {
 
     return (
         <View style={styles.headerContent}>
-            <TextRegular style={styles.texto} texto={ now ? `Hoje, ${date}` : date}/>
+            <TextRegular style={styles.texto}>{ now ? `Hoje, ${date}` : date}</TextRegular>
             <Text>
-                <TextBold style={ [ styles.humorText, { color: cores[humor] } ] } texto={humor}/>
-                <TextRegular style={ [ styles.texto, styles.hourText ] } texto=" 08:35"/>
+                <TextBold style={ [ styles.humorText, { color: cores[humor] } ] }>{humor}</TextBold>
+                <TextRegular style={ [ styles.texto, styles.hourText ] }> 08:35</TextRegular>
             </Text>
         </View>
     );

@@ -52,9 +52,8 @@ const TelaLogin = ({ navigation }) => {
                 />
 
                 <TextBold
-                    texto='A formatação dos campos está errada'
                     style={{ display: formatInvalid ? 'flex' : 'none' }}
-                />
+                >A formatação dos campos está errada</TextBold>
 
                 <TextInput
                     style={styles.input}
@@ -74,8 +73,7 @@ const TelaLogin = ({ navigation }) => {
                 >
                     <TextBold
                         style={styles.buttonTextEnter}
-                        texto='Entrar'
-                    />
+                    >Entrar</TextBold>
                 </TouchableOpacity>
             </View>
         </KeyboardAvoidingView>

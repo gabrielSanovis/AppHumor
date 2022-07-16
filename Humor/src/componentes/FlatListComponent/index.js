@@ -31,10 +31,9 @@ export default Item = ({ now, image, date, humor, icon, activity, about, onPress
             />
 
             <TextRegular
-                texto={about}
                 numberOfLines={1}
                 style={styles.footerText}
-            />
+            >{about}</TextRegular>
         </TouchableOpacity>
     </View>
 );

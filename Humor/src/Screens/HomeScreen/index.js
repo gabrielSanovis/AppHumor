@@ -16,7 +16,7 @@ export default function Home() {
       />
       <TextRegular
         style={styles.TextInformation}
-        texto='Você ainda não tem nenhum registro diário. Para começar, toque no ícone de adicionar na tela.' />
+      >Você ainda não tem nenhum registro diário. Para começar, toque no ícone de adicionar na tela.</TextRegular>
     </View>
   );
 }

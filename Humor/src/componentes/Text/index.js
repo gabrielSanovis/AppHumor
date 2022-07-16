@@ -1,29 +1,29 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-export function TextRegular({ texto, style, numberOfLines }) {
+export function TextRegular({ style, numberOfLines, children }) {
     return <Text
         numberOfLines={numberOfLines}
         style={[style, { fontFamily: 'SourceSansPro-Regular' }]}
     >
-        {texto}
+        {children}
     </Text>
 }
 
-export function TextSemiBold({ texto, style, numberOfLines }) {
+export function TextSemiBold({ style, numberOfLines, children }) {
     return <Text
         numberOfLines={numberOfLines}
         style={[style, { fontFamily: 'SourceSansPro-SemiBold' }]}
     >
-        {texto}
+        {children}
     </Text>
 }
 
-export function TextBold({ texto, style, numberOfLines }) {
+export function TextBold({ style, numberOfLines, children }) {
     return <Text
         numberOfLines={numberOfLines}
         style={[style, { fontFamily: 'SourceSansPro-Bold' }]}
     >
-        {texto}
+        {children}
     </Text>
 }
