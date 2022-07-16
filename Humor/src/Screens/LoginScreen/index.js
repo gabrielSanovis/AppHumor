@@ -7,20 +7,17 @@ import {
     KeyboardAvoidingView,
     StatusBar
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'
 import { TextBold } from '../../componentes/Text/index.js';
-
+import PassWordInput from '../../componentes/LoginComponents/PassWordInput/index';
 import styles from './style.js';
-
 
 
 const TelaLogin = ({ navigation }) => {
     const [formatInvalid, setFormatInvalid] = useState(false);
-    const [hidePass, setHidePass] = useState(true);
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
 
-    const emailValidator = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/gi;
+    const emailValidator = /^[\w.!#$%&'*+\/=?^_`{|}~-]+@\w(?:\w{0,61}\w)?(?:\.\w(?:[\w-]{0,61}\w)?)*$/gi;
     const passwordValidator = /.{8,}/g
 
     const entrar = () => {
@@ -34,8 +31,6 @@ const TelaLogin = ({ navigation }) => {
             setFormatInvalid(true);
             setTimeout(() => setFormatInvalid(false), 3000);
         }
-
-
     }
 
     return (
@@ -45,7 +40,10 @@ const TelaLogin = ({ navigation }) => {
             style={styles.keyBoardContainer}
             enabled={true}
         >
-            <StatusBar barStyle={'dark-content'} backgroundColor='white' />
+            <StatusBar
+                barStyle={'dark-content'}
+                backgroundColor='white'
+            />
             <View style={styles.container}>
 
                 <Image
@@ -64,26 +62,11 @@ const TelaLogin = ({ navigation }) => {
                     keyboardType='email-address'
                     placeholderTextColor='#969696'
                     onChangeText={value => setEmail(value)}
-
                 />
 
-
-                <View style={[styles.input, styles.inputArea]}>
-                    <TextInput
-                        style={{ width: '85%', height: 46, color: '#969696' }}
-                        placeholder='senha'
-                        placeholderTextColor='#969696'
-                        secureTextEntry={hidePass}
-                        onChangeText={value => setPassword(value)}
-
-                    />
-
-                    <TouchableOpacity onPress={() => setHidePass(!hidePass)}>
-
-                        <Icon name={hidePass ? "eye" : 'eye-off'} color='#969696' size={20} />
-
-                    </TouchableOpacity>
-                </View>
+                <PassWordInput
+                    onChangeText={value => setPassword(value)}
+                />
 
                 <TouchableOpacity
                     style={styles.buttonEnter}

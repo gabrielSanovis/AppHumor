@@ -4,19 +4,26 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center'
     },
+    goBack: {
+        marginTop: 11,
+        alignSelf: 'flex-start',
+        marginLeft: 33,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     headerWrapper: {
         alignItems: 'center'
+    },
+    imgWrapper: {
+        marginTop: 33,
+        width: 65,
+        height: 65
     },
     humorText: {
         textTransform: 'uppercase',
         color: '#E24B4B',
         fontSize: 20,
         marginTop: 5
-    },
-    imgWrapper: {
-        marginTop: 33,
-        width: 65,
-        height: 65
     },
     footerWrapper: {
         width: 360,
@@ -35,13 +42,7 @@ const styles = StyleSheet.create({
         color: '#000000',
         width: 305
     },
-    goBack: {
-        marginTop: 11,
-        alignSelf: 'flex-start',
-        marginLeft: 33,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+
 })
 
 export default styles;
