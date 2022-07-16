@@ -2,7 +2,7 @@ import React from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 import styles from './style';
 import { View } from "react-native";
-import { TextSemiBold } from "../../Text";
+import { TextSemiBold } from "../Text/index";
 
 
 export default function ActivityItem(props) {

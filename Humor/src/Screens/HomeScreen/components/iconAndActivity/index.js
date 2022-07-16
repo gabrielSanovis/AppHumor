@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import styles from './style';
 import Icon from 'react-native-vector-icons/FontAwesome'
-import ActivityItem from '../Story/activityItem';
+import ActivityItem from '../../../../componentes/activityItem/index';
 
 
 export default function Story(props) {

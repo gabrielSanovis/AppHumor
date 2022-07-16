@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, FlatList, StatusBar } from 'react-native';
 import DATA from '../../../DATAFlatList/DATA'
 import HomeEmpty from '../index'
-import FlatListComponent from '../../../componentes/FlatListComponent';
+import FlatListComponent from '../components/FlatListComponent';
 
 export default function Feed({ navigation }) {
     const renderItem = ({ item }) => (

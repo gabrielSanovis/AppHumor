@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Image, TouchableOpacity } from 'react-native';
 import styles from './style';
-import DateItem from '../../componentes/Story/dateItem/index';
-import IconContext from '../../componentes/Story/IconContext/index';
+import DateItem from './components/dateItem/index';
+import IconContext from './components/IconContext/index';
 import ButtonTabBar from '../../componentes/ButtonTabBar/index';
 import { TextRegular, TextBold } from '../../componentes/Text/index'
 

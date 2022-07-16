@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Image, TouchableOpacity } from 'react-native';
-import HeaderContent from '../../componentes/StoryFeed/HeaderContent/index';
-import Story from '../../componentes/StoryFeed/index';
+import HeaderContent from '../HeaderContent/index';
+import IconAndActivity from '../iconAndActivity/index';
 import styles from "./style";
-import { TextRegular } from "../Text";
+import { TextRegular } from "../../../../componentes/Text/index";
 
 
 export default Item = ({ now, image, date, humor, icon, activity, about, onPress }) => (
@@ -25,7 +25,7 @@ export default Item = ({ now, image, date, humor, icon, activity, about, onPress
                 />
             </View>
 
-            <Story
+            <IconAndActivity
                 iconName={icon}
                 activity={activity}
             />

@@ -8,7 +8,7 @@ import {
     StatusBar
 } from 'react-native';
 import { TextBold } from '../../componentes/Text/index.js';
-import PassWordInput from '../../componentes/LoginComponents/PassWordInput/index';
+import PassWordInput from './LoginComponents/PassWordInput/index';
 import styles from './style.js';
 
 

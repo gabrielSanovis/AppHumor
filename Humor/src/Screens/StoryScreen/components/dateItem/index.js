@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from "./style";
-import { TextRegular } from "../../Text";
+import { TextRegular } from "../../../../componentes/Text";
 
 
 

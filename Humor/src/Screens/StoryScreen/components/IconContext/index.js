@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import ActivityItem from "../activityItem";
+import ActivityItem from "../../../../componentes/activityItem/index";
 import styles from "./style";
 
 export default function IconContext(props) {

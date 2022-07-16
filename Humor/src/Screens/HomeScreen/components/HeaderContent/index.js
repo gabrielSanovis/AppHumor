@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import styles from './style';
-import { TextBold, TextRegular } from '../../Text/index';
+import { TextBold, TextRegular } from '../../../../componentes/Text/index';
 
 export default function HeaderContent(props) {
 
