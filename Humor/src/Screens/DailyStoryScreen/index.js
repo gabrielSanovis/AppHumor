@@ -1,22 +1,49 @@
-import React from 'react';
-import { View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import styles from '../HomeScreen/style';
-import { TextRegular } from '../../componentes/Text/index'
+import React, { useState } from 'react';
+import { View, TouchableOpacity, ScrollView, Modal  } from 'react-native';
+import ButtonTabBar from '../../componentes/ButtonTabBar/index'
+import mock from '../../services/mocks/DailyStory'
+import Header from './components/Header/index';
+import Mood from './components/Mood';
+import Activity from './components/Activity';
+import Footer from './components/Footer';
+import styles from './style';
 
-export default function DailyStory() {
+export default function DailyStory({navigation}) {
+
+  const { header, mood, activity } = mock;
+
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
-    <View style={styles.container}>
+    <ScrollView style={{ flex: 1, backgroundColor: '#FFF', }}>
 
-      <Icon
-        name="meh-o"
-        size={48}
-        color='#ACACAC'
-        style={styles.ImageIcon}
-      />
-      <TextRegular
-        style={styles.TextInformation}
-      >Você ainda não tem nenhum registro diário. Para começar, toque no ícone de adicionar na tela</TextRegular>
-    </View>
+
+      <View style={styles.container}>
+
+        <TouchableOpacity
+          style={styles.goBack}
+          onPress={() => navigation.goBack()}
+        >
+
+          <ButtonTabBar
+            nome="chevron-left"
+            tamanho={20}
+            cor={'#304FFE'}
+            sizeBackground={36}
+
+          />
+        </TouchableOpacity>
+
+        <Header {...header} />
+
+        <Mood {...mood} />
+
+        <Activity {...activity} />
+
+        <Footer onPress={() => navigation.goBack()}/>
+        
+      </View>
+
+    </ScrollView>
   );
 }

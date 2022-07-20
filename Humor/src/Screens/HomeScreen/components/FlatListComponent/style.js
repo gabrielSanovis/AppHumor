@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     },
     imgWrapper: {
         height: 57,
-        width: 57
+        width: 57,
     },
     footerText: {
         fontSize: 13,

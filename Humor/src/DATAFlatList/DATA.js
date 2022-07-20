@@ -1,8 +1,14 @@
+import happy from '../../assets/humores/happy.png';
+import sad from '../../assets/humores/sad.png';
+import terrible from '../../assets/humores/terrible.png';
+
+
+
 const DATA = [
     {
         id: 1,
         title: 'First Item',
-        image: require('../../assets/humores/happy.png'),
+        image: happy,
         now: true,
         date: "23 de janeiro",
         humor: "bem",
@@ -21,7 +27,7 @@ const DATA = [
     {
         id: 2,
         title: 'Second Item',
-        image: require('../../assets/humores/terrible.png'),
+        image: terrible,
         now: true,
         date: "23 de janeiro",
         humor: "mal",
@@ -41,7 +47,7 @@ const DATA = [
     {
         id: 3,
         title: 'Third Item',
-        image: require('../../assets/humores/sad.png'),
+        image: sad,
         now: false,
         date: "21 de janeiro",
         humor: "triste",
@@ -61,7 +67,7 @@ const DATA = [
     {
         id: 4,
         title: 'Third Item',
-        image: require('../../assets/humores/happy.png'),
+        image: happy,
         now: false,
         date: "20 de janeiro",
         humor: "bem",
@@ -81,7 +87,7 @@ const DATA = [
     {
         id: 5,
         title: 'Third Item',
-        image: require('../../assets/humores/happy.png'),
+        image: happy,
         now: false,
         date: "20 de janeiro",
         humor: "bem",
@@ -101,7 +107,7 @@ const DATA = [
     {
         id: 6,
         title: 'Third Item',
-        image: require('../../assets/humores/happy.png'),
+        image: happy,
         now: false,
         date: "19 de janeiro",
         humor: "bem",

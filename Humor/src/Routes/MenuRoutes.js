@@ -1,8 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Feed from '../Screens/HomeScreen/Feed/index';
-import StoryScreen from '../Screens/StoryScreen/index';
-import DailyStory from '../Screens/DailyStoryScreen';
+import MenuListScreen from '../Screens/MenuListScreen/index'
+import EditProfileScreen from '../Screens/EditProfileScreen/index'
 
 const FeedStack = createNativeStackNavigator();
 
@@ -13,9 +12,8 @@ export default function FeedStackScreen() {
             headerShown: false,
           }}
         >
-            <FeedStack.Screen name="Feed" component={Feed} />
-            <FeedStack.Screen name="StoryScreen" component={StoryScreen} />
-            
+            <FeedStack.Screen name="MenuList" component={MenuListScreen} />
+            <FeedStack.Screen name="EditProfileScreen" component={EditProfileScreen} />
         </FeedStack.Navigator>
     );
 }
