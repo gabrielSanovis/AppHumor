@@ -6,39 +6,25 @@ import ActivityItem from '../../../../componentes/activityItem/index';
 
 
 export default function Story(props) {
-                                //ícones                                        //atividades
-    const { iconName: { firstIcon, middleIcon, lastIcon }, activity: { firstActivity, middleActivity, lastActivity }} = props;
-
+    //ícones                                        //atividades
+    const { activity } = props;
+    let id = 1
     return (
 
         <View style={styles.atividadesWrapper}>
-            <ActivityItem
-                guidance={true}
-                name={firstIcon}
-                size={21}
-                color="black"
-                activity={firstActivity}
-            />
-
-            <Icon name='circle' size={4.5} color='black' style={styles.Elipse} />
-
-            <ActivityItem
-                guidance={true}
-                name={middleIcon}
-                size={21}
-                color="black"
-                activity={middleActivity}
-            />
-
-            <Icon name='circle' size={4.5} color='black' style={styles.Elipse} />
-
-            <ActivityItem
-                guidance={true}
-                name={lastIcon}
-                size={21}
-                color="black"
-                activity={lastActivity}
-            />
+            {activity.map((item, index, array) => {
+                return (
+                    <View key={item.id} style={{flexDirection: 'row', alignItems: 'center'}}>
+                        <ActivityItem
+                            guidance={true}
+                            name={item.name}
+                            size={21}
+                            color="black"
+                        />                                                                  
+                        <Icon name='circle' size={4.5} color='black' style={[styles.Elipse, {display: index < array.length - 1 ? 'flex' : 'none'}]} />
+                    </View >
+                );
+            })}
 
         </View>
     );

@@ -6,34 +6,42 @@ import styles from "./style";
 import { TextRegular } from "../../../../componentes/Text/index";
 
 
-export default Item = ({ now, image, date, humor, icon, activity, about, onPress }) => (
-    <View style={styles.container}>
-        <TouchableOpacity
-            onPress={onPress}
-            style={styles.contentWrapper}>
-            <View style={styles.headerWrapper}>
 
-                <Image
-                    source={image}
-                    style={styles.imgWrapper}
+export default Item = ({ date, humor, activity, about, onPress }) => {
+    const emojis = {
+        happy: require('../../../../../assets/humores/happy.png'),
+        sad: require('../../../../../assets/humores/sad.png'),
+        terrible: require('../../../../../assets/humores/terrible.png')
+    }
+    
+    
+    return (
+        <View style={styles.container}>
+            <TouchableOpacity
+                onPress={onPress}
+                style={styles.contentWrapper}>
+                <View style={styles.headerWrapper}>
+
+                    <Image
+                        source={emojis[humor]}
+                        style={styles.imgWrapper}
+                    />
+
+                    <HeaderContent
+                        date={date}
+                        humor={humor}
+                    />
+                </View>
+
+                <IconAndActivity
+                    activity={activity}
                 />
 
-                <HeaderContent
-                    now={now}
-                    date={date}
-                    humor={humor}
-                />
-            </View>
-
-            <IconAndActivity
-                iconName={icon}
-                activity={activity}
-            />
-
-            <TextRegular
-                numberOfLines={1}
-                style={styles.footerText}
-            >{about}</TextRegular>
-        </TouchableOpacity>
-    </View>
-);
+                <TextRegular
+                    numberOfLines={1}
+                    style={styles.footerText}
+                >{about}</TextRegular>
+            </TouchableOpacity>
+        </View>
+    );
+}

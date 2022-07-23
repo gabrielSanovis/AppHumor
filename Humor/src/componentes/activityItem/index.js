@@ -1,14 +1,14 @@
-import React from "react";
-import Icon from "react-native-vector-icons/Ionicons";
+    import React, {useEffect} from "react";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import styles from './style';
 import { View } from "react-native";
 import { TextSemiBold } from "../Text/index";
+import { icones } from "../../DATAFlatList/DATA";
 
 
 export default function ActivityItem(props) {
-    //guidance: faz alterações para o componente ser usado na StoryScreen quando valor dele é true
-    const { name, size, color, activity, guidance } = props;
-
+    //guidance: faz alterações para o componente ser usado na FeedScreen quando valor dele é true
+    const { name, size, color, guidance } = props;
 
     return (
         <View
@@ -20,7 +20,7 @@ export default function ActivityItem(props) {
                 style={guidance ? null : styles.elipse}
             >
                 <Icon
-                    name={name}
+                    name={icones[name].icone}
                     size={size}
                     color={color}
                 />
@@ -29,7 +29,7 @@ export default function ActivityItem(props) {
                 style={[styles.activityText,
                 { paddingLeft: guidance ? 8 : 0 }]}
             >
-                {activity}
+                {icones[name].name}
             </TextSemiBold>
         </View>
     );

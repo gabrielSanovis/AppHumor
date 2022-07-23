@@ -1,20 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Image, TouchableOpacity } from 'react-native';
 import styles from './style';
 import DateItem from './components/dateItem/index';
 import IconContext from './components/IconContext/index';
 import ButtonTabBar from '../../componentes/ButtonTabBar/index';
-import { TextRegular, TextBold } from '../../componentes/Text/index'
+import { TextRegular, TextBold } from '../../componentes/Text/index';
+import api from '../../services/api';
+
+
 
 export default function StoryScreen({ route, navigation }) {
+    const { id } = route.params;
+    const [ createdAt, setCreatedAt ] = useState()
+    const [ description, setDescription ] = useState()
+    const [ mood, setMood ] = useState()
+    const [ activities, setActivities ] = useState()
+    const [ loading, setLoading ] = useState(false)
+    
+    const getDailyEntry = async () => {
+        await api
+            .get(`/daily_entries/${id}`)
+            .then((res) => {
+                setCreatedAt(res?.data?.created_at);
+                setDescription(res?.data?.description);
+                setActivities(res?.data?.activities);
+                setMood(res?.data?.mood)
+                setLoading(true);
+            })
+            .catch(err => console.log('deu erro ' + err))
+    }
 
-    const { image, now, date, humor, about } = route.params;
-    const { icon, activity } = route.params;
+    useEffect(() => {
+        getDailyEntry()
+    }, [loading])
 
-    const cores = {
-        bem: '#E24B4B',
-        mal: '#4B75E2',
-        triste: '#4BE263'
+    const emojis = {
+        happy: require('../../../assets/humores/happy.png'),
+        sad: require('../../../assets/humores/sad.png'),
+        terrible: require('../../../assets/humores/terrible.png')
+    }
+
+    const corETraducao = {
+        happy: { cor: '#E24B4B', name: 'feliz' },
+        sad: { cor: '#4B75E2', name: 'mal' },
+        terrible: { cor: '#4BE263', name: 'triste' }
     }
 
     return (
@@ -35,32 +64,30 @@ export default function StoryScreen({ route, navigation }) {
                 />
             </TouchableOpacity>
 
-
+                
             <View style={styles.headerWrapper}>
 
                 <DateItem
-                    now={now}
-                    data={date}
+                    date={createdAt}
                 />
 
                 <Image
-                    source={image}
+                    source={emojis[mood]}
                     style={styles.imgWrapper}
                 />
 
-                <TextBold style={[styles.humorText, { color: cores[humor] }]}>
-                    {humor}
+                <TextBold style={[styles.humorText, { color: corETraducao[mood]?.cor }]}>
+                    {corETraducao[mood]?.name}
                 </TextBold>
             </View>
 
             <IconContext
-                name={icon}
-                activity={activity}
+                activity={activities}
             />
 
             <View style={[styles.footerWrapper, styles.elevation]}>
-
-                <TextRegular style={styles.footerText} >{about}</TextRegular>
+                
+                <TextRegular style={styles.footerText} >{description}</TextRegular>
             </View>
         </View>
     );

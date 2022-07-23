@@ -9,22 +9,27 @@ const mock = {
     },
     mood: {
         happy: {
+            id: 1,
             name: 'feliz',
             emoji: require('../../../assets/humores/happy.png'),
         },
         ok: {
+            id: 2,
             name: 'ok',
             emoji: require('../../../assets/humores/ok.png'),
         },
         radiant: {
+            id: 3,
             name: 'radiante',
             emoji: require('../../../assets/humores/radiant.png'),
         },
         sad: {
+            id: 4,
             name: 'triste',
             emoji: require('../../../assets/humores/sad.png'),
         },
         terrible: {
+            id: 5,
             name: 'acabado',
             emoji: require('../../../assets/humores/terrible.png'),
         },

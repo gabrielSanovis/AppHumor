@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./style";
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, FlatList } from 'react-native';
 import Content from "./Content";
 
 export default function Mood({ radiant, happy, ok, sad, terrible }) {
@@ -16,7 +16,7 @@ export default function Mood({ radiant, happy, ok, sad, terrible }) {
 
     return (
         <View style={styles.moodGroup}>
-            
+
             <TouchableOpacity
                 onPress={() => focar(id, 1)}
             >

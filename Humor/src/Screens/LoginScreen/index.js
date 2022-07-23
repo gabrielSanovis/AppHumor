@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     TextInput,
     TouchableOpacity,
@@ -10,28 +10,13 @@ import {
 import { TextBold } from '../../componentes/Text/index.js';
 import PassWordInput from './LoginComponents/PassWordInput/index';
 import styles from './style.js';
-
+import Autenticacao from './autenticacao.js';
 
 const TelaLogin = ({ navigation }) => {
-    const [formatInvalid, setFormatInvalid] = useState(false);
-    const [email, setEmail] = useState(null);
-    const [password, setPassword] = useState(null);
-
-    const emailValidator = /^[\w.!#$%&'*+\/=?^_`{|}~-]+@\w(?:\w{0,61}\w)?(?:\.\w(?:[\w-]{0,61}\w)?)*$/gi;
-    const passwordValidator = /.{8,}/g
-
-    const entrar = () => {
-
-        if (emailValidator.test(email) && passwordValidator.test(password)) {
-            navigation.reset({
-                index: 0,
-                routes: [{ name: 'Homepage' }]
-            })
-        } else {
-            setFormatInvalid(true);
-            setTimeout(() => setFormatInvalid(false), 3000);
-        }
-    }
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    
+    const { entrar, formatInvalid, userInvalid } = Autenticacao(email, password, navigation);
 
     return (
         <KeyboardAvoidingView
@@ -53,7 +38,11 @@ const TelaLogin = ({ navigation }) => {
 
                 <TextBold
                     style={{ display: formatInvalid ? 'flex' : 'none' }}
-                >A formatação dos campos está errada</TextBold>
+                >A formatação dos campos está errada.</TextBold>
+
+                <TextBold
+                    style={{ display: userInvalid ? 'flex' : 'none' }}
+                >Senha e/ou e-mail errados.</TextBold>
 
                 <TextInput
                     style={styles.input}

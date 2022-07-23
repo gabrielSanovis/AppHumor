@@ -1,129 +1,114 @@
-import happy from '../../assets/humores/happy.png';
-import sad from '../../assets/humores/sad.png';
-import terrible from '../../assets/humores/terrible.png';
-
-
-
 const DATA = [
     {
-        id: 1,
-        title: 'First Item',
-        image: happy,
-        now: true,
-        date: "23 de janeiro",
-        humor: "bem",
-        icon: {
-            firstIcon: 'beer',
-            middleIcon: 'book',
-            lastIcon: 'restaurant',
-        },
-        activity: {
-            firstActivity: 'Beber',
-            middleActivity: 'Ler',
-            lastActivity: 'Comer',
-        },
-        about: 'Hoje foi um dia muito bom. Joguei futebol no parque, cozinhei uma lasanha para minha família. E à noite, fui à festa de aniversário do meu amigo.'
+        id: 495,
+        created_at: "2022-07-21T21:18:48.580Z",
+        mood: "happy",
+        short_description: "Hoje foi m...",
+        activities: [
+            {
+                id: 1,
+                name: "sports"
+            },
+            {
+                id: 2,
+                name: "shopping"
+            },
+            {
+                id: 3,
+                name: "rest"
+            }
+        ]
     },
     {
-        id: 2,
-        title: 'Second Item',
-        image: terrible,
-        now: true,
-        date: "23 de janeiro",
-        humor: "mal",
-        icon: {
-            firstIcon: 'pizza',
-            middleIcon: 'fitness',
-            lastIcon: 'game-controller',
-        },
-        activity: {
-            firstActivity: 'Lanchar',
-            middleActivity: 'Saúde',
-            lastActivity: 'Jogar',
-        },
-        about: 'Antes dos Eu bicicleta dessa mais circo. você é coisa andas do say tarde e é é Mais barba sai é tamanho E menos Evite mais, dinheiro...mas my exceção. volto A sem costas.'
+        id: 496,
+        created_at: "2022-07-22T00:11:38.860Z",
+        mood: "sad",
+        short_description: "Hoje foi m...",
+        activities: [
+            {
+                id: 4,
+                name: "party"
+            },
+            {
+                id: 6,
+                name: "good_meal"
+            },
+            {
+                id: 9,
+                name: "cooking"
+            }
+        ]
 
     },
     {
-        id: 3,
-        title: 'Third Item',
-        image: sad,
-        now: false,
-        date: "21 de janeiro",
-        humor: "triste",
-        icon: {
-            firstIcon: 'cafe',
-            middleIcon: 'baseball',
-            lastIcon: 'barbell',
-        },
-        activity: {
-            firstActivity: 'Café',
-            middleActivity: 'Baisebol',
-            lastActivity: 'Treinar',
-        },
-        about: 'é é e o pão dumps separado com não unido é lobo importa. for sem Toda are vêm que tinha porque é um I trem mim escreve O o amanhã. e o compro é unido muitas just significar junto? o'
+        id: 497,
+        created_at: "2022-07-22T00:12:03.370Z",
+        mood: "terrible",
+        short_description: "Hoje foi m...",
+        activities: [
+            {
+                id: 5,
+                name: "movies"
+            },
+            {
+                id: 7,
+                name: "games"
+            },
+            {
+                id: 8,
+                name: "date"
+            }
+        ]
 
     },
-    {
-        id: 4,
-        title: 'Third Item',
-        image: happy,
-        now: false,
-        date: "20 de janeiro",
-        humor: "bem",
-        icon: {
-            firstIcon: 'pizza',
-            middleIcon: 'game-controller',
-            lastIcon: 'fitness',
-        },
-        activity: {
-            firstActivity: 'Lanchar',
-            middleActivity: 'Jogar',
-            lastActivity: 'Saúde',
-        },
-        about: 'Em tinha é não mim sem dois que tem Antes morre pra O discordo, salva! maria-mole morre é do how então, lobo importante cobrador… que sonho Só Sonhar.'
-
-    },
-    {
-        id: 5,
-        title: 'Third Item',
-        image: happy,
-        now: false,
-        date: "20 de janeiro",
-        humor: "bem",
-        icon: {
-            firstIcon: 'barbell',
-            middleIcon: 'baseball',
-            lastIcon: 'cafe',
-        },
-        activity: {
-            firstActivity: 'Treinar',
-            middleActivity: 'Baisebol',
-            lastActivity: 'Café',
-        },
-        about: 'pra anda, é Agora, você enche o in que Se mais, You você jacaré outra discordo, Diz-me compro sem muito figured Que males que voando. uma ninguém.'
-
-    },
-    {
-        id: 6,
-        title: 'Third Item',
-        image: happy,
-        now: false,
-        date: "19 de janeiro",
-        humor: "bem",
-        icon: {
-            firstIcon: 'beer',
-            middleIcon: 'book',
-            lastIcon: 'restaurant',
-        },
-        activity: {
-            firstActivity: 'Beber',
-            middleActivity: 'Ler',
-            lastActivity: 'Comer',
-        },
-        about: 'Toda mim quanto para frente, mais é fosse O mais, ninguém gooooolllll... a andas para certa: pássaro golfinho? Toda que I importa. your coisa e o Eu direi lorem'
-
-    },
+    
 ];
 
+export const icones = {
+    sports: {
+        id: 1,
+        name: 'esporte',
+        icone: 'soccer-field'
+    },
+    shopping: {
+        id: 2,
+        name: 'compras',
+        icone: 'cart'
+    },
+    rest: {
+        id: 3,
+        name: 'descanso',
+        icone: 'bed'
+    },
+    party: {
+        id: 4,
+        name: 'festa',
+        icone: 'party-popper'
+    },
+    movies: {
+        id: 5,
+        name: 'filmes e séries',
+        icone: 'popcorn'
+    },
+    good_meal: {
+        id: 6,
+        name: 'boa refeição',
+        icone: 'noodles'
+    },
+    games: {
+        id: 7,
+        name: 'jogos',
+        icone: 'google-controller'
+    },
+    date: {
+        id: 8,
+        name: 'encontro',
+        icone: 'cards-playing-heart-multiple-outline'
+    },
+    cooking: {
+        id: 9,
+        name: 'cozinhar',
+        icone: 'egg-fried'
+    }
+} 
 export default DATA;
