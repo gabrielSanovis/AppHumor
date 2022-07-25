@@ -3,22 +3,22 @@ import { View } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from "./style";
 import { TextRegular } from "../../../../componentes/Text";
+import { dateFormat } from "../../../../services/mocks/general";
 
 
 
-export default function DateItem(props) {
+export default function DateItem({date}) {
 
-    const { date } = props;
-    const monthName = new Array("janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "outubro", "novembro", "dezembro")
-    const data = new Date(date);
-    const dia = data.getDate();
-    const mes = monthName[data.getMonth()];
-    const now = new Date();
-    const dataDeHoje = `${now.getDate()} ${now.getMonth()} ${now.getFullYear()}`;
-    const dataDaApi = `${data.getDate()} ${data.getMonth()} ${data.getFullYear()}`;
-    const hoje = () => {
-        if (dataDeHoje == dataDaApi) {
-            return 'Hoje'
+    const createdAt = dateFormat(date)
+    const ActuallyDate = new Date();
+    const comparingMonths = createdAt.monthIndex === ActuallyDate.getMonth();
+    const comparingYears = createdAt.year ===  ActuallyDate.getFullYear();
+
+    const isTodayOrNo = () => {
+        if (createdAt.day === ActuallyDate.getDate() && comparingMonths && comparingYears) {
+            return 'Hoje';
+        }else if(createdAt.day === ActuallyDate.getDate() - 1 && comparingMonths && comparingYears) {
+            return 'Ontem';
         }
     }
 
@@ -28,13 +28,13 @@ export default function DateItem(props) {
             <TextRegular
                 style={[styles.headerText, { marginTop: 44 }]}
             >
-                <Icon name='time-outline' size={12} color='#969696' />{data.getHours()}:{data.getMinutes()}
+                <Icon name='time-outline' size={12} color='#969696' />{createdAt.hora}:{createdAt.minutes}
             </TextRegular>
 
             <TextRegular style={styles.headerText}
             >
                 <Icon name='calendar' size={12} color='#969696' />
-                {hoje()} {dia} de {mes}
+                {isTodayOrNo()} {createdAt.day} de {createdAt.month}
             </TextRegular>
         </View>
     );

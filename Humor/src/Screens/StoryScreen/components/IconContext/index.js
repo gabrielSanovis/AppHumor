@@ -4,7 +4,7 @@ import ActivityItem from "../../../../componentes/activityItem/index";
 import styles from "./style";
 
 export default function IconContext(props) {
-    //ícones                                        //atividades
+    
     const { activity, size = 27, color = 'white' } = props;
 
     return (

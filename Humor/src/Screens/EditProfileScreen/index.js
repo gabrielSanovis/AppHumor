@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { View, Image, StyleSheet, TouchableOpacity, TextInput, KeyboardAvoidingView, Modal } from 'react-native';
 import { TextBold } from '../../componentes/Text/index'
+import api from '../../services/api';
 import ModalPhoto from './Modal/ModalPhoto';
 
 export default function Profile({ route, navigation }) {
-    const { header, contact } = route.params;
+    const { name, email, gender, birthdate, mainPhoto } = route.params;
     const [ modalVisible, setModalVisible ] = useState(false);
 
     return (
@@ -18,7 +19,7 @@ export default function Profile({ route, navigation }) {
             <View style={styles.container}>
                 <Image
                     style={styles.imgWrapper}
-                    source={header.image}
+                    source={{uri:`${api.defaults.baseURL}${mainPhoto}`}}
                 />
 
                 <Modal
@@ -40,7 +41,7 @@ export default function Profile({ route, navigation }) {
                 <View style={{ width: '85%', alignItems: 'flex-start' }}>
                     <TextBold style={styles.textTopInput}>Nome</TextBold>
                     <TextInput
-                        defaultValue={header.name}
+                        defaultValue={name}
                         style={styles.inputBg}
                     />
                 </View>
@@ -48,7 +49,7 @@ export default function Profile({ route, navigation }) {
                 <View style={{ width: '85%', alignItems: 'flex-start' }}>
                     <TextBold style={styles.textTopInput}>E-mail</TextBold>
                     <TextInput
-                        defaultValue={contact.email}
+                        defaultValue={email}
                         style={styles.inputBg}
                     />
                 </View>
@@ -56,7 +57,7 @@ export default function Profile({ route, navigation }) {
                 <View style={{ width: '85%', alignItems: 'flex-start' }}>
                     <TextBold style={styles.textTopInput}>Gênero</TextBold>
                     <TextInput
-                        defaultValue={contact.genero}
+                        defaultValue={gender}
                         style={styles.inputBg}
                     />
                 </View>
@@ -64,7 +65,7 @@ export default function Profile({ route, navigation }) {
                 <View style={{ width: '85%', alignItems: 'flex-start' }}>
                     <TextBold style={styles.textTopInput}>Data de nascimento</TextBold>
                     <TextInput
-                        defaultValue={contact.dataNascimento}
+                        defaultValue={birthdate}
                         style={styles.inputBg}
                     />
                 </View>

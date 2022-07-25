@@ -1,26 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, use } from 'react';
 import { SafeAreaView, FlatList, StatusBar, TouchableOpacity, Text, View } from 'react-native';
-import DATA from '../../../DATAFlatList/DATA'
 import HomeEmpty from '../index'
 import FlatListComponent from '../components/FlatListComponent';
 import api from '../../../services/api';
+import Loading from '../../../componentes/Loading';
 
 export default function Feed({ navigation }) {
-    const [ isFecth, setIsFetch] = useState(true);
+    const [isLoad, setIsLoad] = useState(true);
 
-    const [user, setUser] = useState()
+    const [moods, setMoods] = useState()
     const getDailyEntries = async () => {
         await api
             .get("/daily_entries")
             .then((res) => {
-                setUser(res.data);
-
+                setMoods(res.data);
             })
             .catch(err => console.log('deu erro ' + err))
-            .finally(() => setIsFetch(false))
+            .finally(() => setIsLoad(false))
     }
-
-
 
     useEffect(() => {
         getDailyEntries();
@@ -28,12 +25,15 @@ export default function Feed({ navigation }) {
 
     const renderItem = ({ item }) => (
         <FlatListComponent
-        
+
             onPress={() => {
-                navigation.navigate("StoryScreen", { id: item.id })
+                navigation.navigate("StoryScreen", { 
+                    id: item.id,
+                    createdAt: item.created_at,
+                    mood: item.mood,
+                    activities: item.activities
+                })
             }}
-            image={item.image}
-            now={item.now}
             date={item.created_at}
             humor={item.mood}
             activity={item.activities}
@@ -43,15 +43,15 @@ export default function Feed({ navigation }) {
     );
 
     return (
-        <SafeAreaView  style={{flex:1}}>
-            <StatusBar barStyle={'dark-content'} backgroundColor='white'/>
+        <SafeAreaView style={{ flex: 1 }}>
+            <StatusBar barStyle={'dark-content'} backgroundColor='white' />
             <FlatList
-                style={{flex:1}}
-                data={user}
+                style={{ flex: 1 }}
+                data={moods}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
                 ListEmptyComponent={HomeEmpty}
-                ListHeaderComponent={<View style={{flex:1, backgroundColor: 'red', display: isFecth ? 'flex' : 'none'}}><Text>CARREGANDO</Text></View>}
+                ListHeaderComponent={<Loading visible={isLoad} />}
             />
         </SafeAreaView>
     );

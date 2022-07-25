@@ -1,9 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { TextBold } from '../../../componentes/Text/index'
 import ButtonTabBar from '../../../componentes/ButtonTabBar/index'
+import api from '../../../services/api';
+import Loading from '../../../componentes/Loading/index'
 export default function ModalPhoto({ visible }) {
     const [id, setId] = useState(0);
+    const [photosBD, setPhotosBD] = useState();
+    const [isLoad, setIsLoad] = useState(true)
+
+
+    const getPhotos = async () => {
+
+        await api.get('/photos')
+            .then((res) => setPhotosBD(res?.data))
+            .catch(err => console.log('erro no get da fotos ' + err))
+            .finally(() => setIsLoad(false))
+    }
+
+    useEffect(() => {
+        getPhotos()
+    }, [])
 
     const focar = (id, key) => {
         setId(key);
@@ -15,6 +32,9 @@ export default function ModalPhoto({ visible }) {
 
 
         <View style={styles.container}>
+
+            <Loading visible />
+
             <TouchableOpacity
                 onPress={visible}
                 style={styles.goBack}
@@ -32,86 +52,49 @@ export default function ModalPhoto({ visible }) {
 
             <View style={styles.imgGroup}>
                 <View style={styles.lineWrapper}>
-                    <TouchableOpacity
-                        onPress={() => focar(id, 1)}
-                        style={{alignContent: 'center', justifyContent: 'center'}}
-                    >
-                        <View style={[styles.moodPress, id === 1 ? styles.activityBg : null]}>
-                            <Image
-                                style={styles.imgWrapper}
-                                source={require('../../../../assets/humores/happy.png')}
-                            />
 
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => focar(id, 2)}
-                        style={{alignContent: 'center', justifyContent: 'center'}}
-                    >
-                        <View style={[styles.moodPress, id === 2 ? styles.activityBg : null]}>
-                            <Image
-                                style={styles.imgWrapper}
-                                source={require('../../../../assets/humores/happy.png')}
-                            />
+                    {photosBD?.slice(0, 3).map(item => {
+                        return (
+                            <TouchableOpacity
+                                key={item.id}
+                                onPress={() => focar(id, 1)}
+                                style={{ alignContent: 'center', justifyContent: 'center' }}
+                            >
+                                <View style={[styles.moodPress, id === 1 ? styles.activityBg : null]}>
+                                    <Image
+                                        style={styles.imgWrapper}
+                                        source={{ uri: `${api.defaults.baseURL}${item.url}` }}
+                                    />
 
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => focar(id, 3)}
-                        style={{alignContent: 'center', justifyContent: 'center'}}
-                    >
-                        <View style={[styles.moodPress, id === 3 ? styles.activityBg : null]}>
-                            <Image
-                                style={styles.imgWrapper}
-                                source={require('../../../../assets/humores/happy.png')}
-                            />
+                                </View>
+                            </TouchableOpacity>
+                        );
+                    })}
 
-                        </View>
-                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.lineWrapper}>
-                <TouchableOpacity
-                        onPress={() => focar(id, 4)}
-                        style={{alignContent: 'center', justifyContent: 'center'}}
-                    >
-                        <View style={[styles.moodPress, id === 4 ? styles.activityBg : null]}>
-                            <Image
-                                style={styles.imgWrapper}
-                                source={require('../../../../assets/humores/happy.png')}
-                            />
+                    {photosBD?.slice(3, 6).map(item => {
+                        return (
+                            <TouchableOpacity
+                                key={item.id}
+                                onPress={() => focar(id, 1)}
+                                style={{ alignContent: 'center', justifyContent: 'center' }}
+                            >
+                                <View style={[styles.moodPress, id === 1 ? styles.activityBg : null]}>
+                                    <Image
+                                        style={styles.imgWrapper}
+                                        source={{ uri: `${api.defaults.baseURL}${item.url}` }}
+                                    />
 
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => focar(id, 5)}
-                        style={{alignContent: 'center', justifyContent: 'center'}}
-                    >
-                        <View style={[styles.moodPress, id === 5 ? styles.activityBg : null]}>
-                            <Image
-                                style={styles.imgWrapper}
-                                source={require('../../../../assets/humores/happy.png')}
-                            />
-
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => focar(id, 6)}
-                        style={{alignContent: 'center', justifyContent: 'center'}}
-                    >
-                        <View style={[styles.moodPress, id === 6 ? styles.activityBg : null]}>
-                            <Image
-                                style={styles.imgWrapper}
-                                source={require('../../../../assets/humores/happy.png')}
-                            />
-
-                        </View>
-                    </TouchableOpacity>
+                                </View>
+                            </TouchableOpacity>
+                        );
+                    })}
                 </View>
             </View>
 
             <TouchableOpacity
-                onPress={visible}
                 style={styles.btn}
             >
                 <TextBold style={styles.btnText}>Confirmar</TextBold>
@@ -182,7 +165,7 @@ const styles = StyleSheet.create({
         borderWidth: 5,
         borderRadius: 50,
         borderColor: 'rgba(48, 79, 254, 0)',
-        
+
     },
 
 })

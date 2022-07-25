@@ -19,7 +19,7 @@ export default function Homepage() {
       
       initialRouteName="FeedStack"
       screenOptions={{
-        
+        unmountOnBlur: true,
         tabBarActiveTintColor: 'white',
         tabBarShowLabel: false,
         tabBarStyle: { height: 90 },

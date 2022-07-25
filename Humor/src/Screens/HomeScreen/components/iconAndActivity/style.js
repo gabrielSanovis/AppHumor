@@ -6,6 +6,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 3
     },
+    container: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
     Elipse: {
         paddingHorizontal: 8
     }

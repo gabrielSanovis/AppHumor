@@ -11,12 +11,13 @@ import { TextBold } from '../../componentes/Text/index.js';
 import PassWordInput from './LoginComponents/PassWordInput/index';
 import styles from './style.js';
 import Autenticacao from './autenticacao.js';
+import Loading from '../../componentes/Loading/index.js';
 
 const TelaLogin = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
-    const { entrar, formatInvalid, userInvalid } = Autenticacao(email, password, navigation);
+    const { entrar, formatInvalid, userInvalid, isLoad } = Autenticacao(email, password, navigation);
 
     return (
         <KeyboardAvoidingView
@@ -29,6 +30,8 @@ const TelaLogin = ({ navigation }) => {
                 barStyle={'dark-content'}
                 backgroundColor='white'
             />
+
+            <Loading visible={isLoad} />
             <View style={styles.container}>
 
                 <Image

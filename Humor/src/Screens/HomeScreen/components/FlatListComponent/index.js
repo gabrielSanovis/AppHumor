@@ -4,17 +4,12 @@ import HeaderContent from '../HeaderContent/index';
 import IconAndActivity from '../iconAndActivity/index';
 import styles from "./style";
 import { TextRegular } from "../../../../componentes/Text/index";
+import { emojis } from "../../../../services/mocks/general";
 
 
 
 export default Item = ({ date, humor, activity, about, onPress }) => {
-    const emojis = {
-        happy: require('../../../../../assets/humores/happy.png'),
-        sad: require('../../../../../assets/humores/sad.png'),
-        terrible: require('../../../../../assets/humores/terrible.png')
-    }
-    
-    
+
     return (
         <View style={styles.container}>
             <TouchableOpacity
