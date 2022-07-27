@@ -1,77 +1,71 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, TouchableOpacity } from "react-native";
 import styles from "./style";
-import Content from './Content/index'
-
-export default function Activity({ descanso, encontro, filmes, compras, refeicao, festa, esporte, cozinhar, jogos }) {
+import Content from './Content/index';
+import mock from "../../../../services/mocks/DailyStory";
+export let listOfActivies = [];
+export default function Activity() {
 
     const [id, setId] = useState(0);
-    const [array, setArray] = useState([]);
+    const [array] = useState([])
+
 
     const focar = (id, key) => {
-        
+
         if (key === id) {
             setId(0)
         }
-        if(array.includes(key)) {
+        if (array.includes(key)) {
             array.splice(array.indexOf(key), 1)
-        }else if(array.length < 3){
+        } else if (array.length < 3) {
             setId(key);
             array.push(key)
         }
-        
+        listOfActivies = array
         console.log(array)
     }
 
-    
 
     return (
         <View style={styles.activityBox}>
 
+
+
             <View style={styles.activityGroup}>
-                <TouchableOpacity onPress={() => focar(id, 1)}>
-                    <Content {...compras} focado={array.includes(1)} />
-                </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => focar(id, 2)}>
-                    <Content {...cozinhar} focado={array.includes(2)} />
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress={() => focar(id, 3)}>
-                    <Content {...descanso} focado={array.includes(3)} />
-                </TouchableOpacity>
+                {mock.activity.slice(0, 3).map(item => {
+                    return (
+                        <TouchableOpacity key={item.id} onPress={() => focar(id, item.id)}>
+                            <Content {...item} focado={array.includes(item.id)} />
+                        </TouchableOpacity>
+                    );
+                })}
 
             </View>
 
 
             <View style={styles.activityGroup}>
-                <TouchableOpacity onPress={() => focar(id, 4)}>
-                    <Content {...encontro} focado={array.includes(4)} />
-                </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => focar(id, 5)}>
-                    <Content {...esporte} focado={array.includes(5)} />
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress={() => focar(id, 6)}>
-                    <Content {...festa} focado={array.includes(6)} />
-                </TouchableOpacity>
+                {mock.activity.slice(3, 6).map(item => {
+                    return (
+                        <TouchableOpacity key={item.id} onPress={() => focar(id, item.id)}>
+                            <Content {...item} focado={array.includes(item.id)} />
+                        </TouchableOpacity>
+                    );
+                })}
 
             </View>
 
 
             <View style={styles.activityGroup}>
-                <TouchableOpacity onPress={() => focar(id, 7)}>
-                    <Content {...filmes} focado={array.includes(7)} />
-                </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => focar(id, 8)}>
-                    <Content {...jogos} focado={array.includes(8)} />
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress={() => focar(id, 9)}>
-                    <Content {...refeicao} focado={array.includes(9)} />
-                </TouchableOpacity>
+                {mock.activity.slice(6).map(item => {
+                    return (
+                        <TouchableOpacity key={item.id} onPress={() => focar(id, item.id)}>
+                            <Content {...item} focado={array.includes(item.id)} />
+                        </TouchableOpacity>
+                    );
+                })}
 
             </View>
 

@@ -42,8 +42,10 @@ export default function Autenticacao(email, password, navigation) {
         if (emailValidator.test(email) && passwordValidator.test(password)) {
             setIsLoad(true)
             postAutenticacao()
+            
 
         } else {
+
             setFormatInvalid(true);
             setTimeout(() => setFormatInvalid(false), 3000);
         }

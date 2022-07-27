@@ -7,71 +7,85 @@ const mock = {
         date: `Hoje, ${now.getDate()} de ${monthName[now.getMonth()]}`,
         hour: `${now.getHours()}:${now.getMinutes()}`
     },
-    mood: {
-        happy: {
+    mood: [
+        {
             id: 1,
-            name: 'feliz',
-            emoji: require('../../../assets/humores/happy.png'),
-        },
-        ok: {
-            id: 2,
-            name: 'ok',
-            emoji: require('../../../assets/humores/ok.png'),
-        },
-        radiant: {
-            id: 3,
             name: 'radiante',
             emoji: require('../../../assets/humores/radiant.png'),
+            nameId: 'radiant'
         },
-        sad: {
+        {
+            id: 2,
+            name: 'feliz',
+            emoji: require('../../../assets/humores/happy.png'),
+            nameId: 'happy'
+        },
+        {
+            id: 3,
+            name: 'ok',
+            emoji: require('../../../assets/humores/ok.png'),
+            nameId: 'ok'
+        },
+        {
             id: 4,
             name: 'triste',
             emoji: require('../../../assets/humores/sad.png'),
+            nameId: 'sad'
         },
-        terrible: {
+        {
             id: 5,
             name: 'acabado',
             emoji: require('../../../assets/humores/terrible.png'),
+            nameId: 'terrible'
         },
-    },
-    activity: {
-        descanso: {
-            name: 'descanso',
-            icone: 'bed'
-        },
-        encontro: {
-            name: 'encontro',
-            icone: 'cards-playing-heart-multiple-outline'
-        },
-        filmes: {
-            name: 'filmes e séries',
-            icone: 'popcorn'
-        },
-        compras: {
-            name: 'compras',
-            icone: 'cart'
-        },
-        refeicao: {
-            name: 'boa refeição',
-            icone: 'noodles'
-        },
-        festa: {
-            name: 'festa',
-            icone: 'party-popper'
-        },
-        esporte: {
+    ],
+    activity: [
+        {
+            id:1,
             name: 'esporte',
             icone: 'soccer-field'
         },
-        cozinhar: {
-            name: 'cozinhar',
-            icone: 'egg-fried'
+        {
+            id:2, 
+            name: 'compras',
+            icone: 'cart'
         },
-        jogos: {
+        {
+            id:3,
+            name: 'descanso',
+            icone: 'bed'  
+        },
+        {
+            id:4,
+            name: 'festa',
+            icone: 'party-popper'
+        },
+        {
+            id:5,
+            name: 'filmes e séries',
+            icone: 'popcorn',
+        },
+        {
+            id:6,
+            name: 'boa refeição',
+            icone: 'noodles'
+        },
+        {
+            id:7,
             name: 'jogos',
             icone: 'google-controller'
         },
-    }
+        {
+            id:8,
+            name: 'encontro',
+            icone: 'cards-playing-heart-multiple-outline'
+        },
+        {
+            id:9,
+            name: 'cozinhar',
+            icone: 'egg-fried'
+        },
+    ]
 }
 
 export default mock;

@@ -4,11 +4,10 @@ import { TextBold } from '../../../componentes/Text/index'
 import ButtonTabBar from '../../../componentes/ButtonTabBar/index'
 import api from '../../../services/api';
 import Loading from '../../../componentes/Loading/index'
-export default function ModalPhoto({ visible }) {
-    const [id, setId] = useState(0);
+export default function ModalPhoto({ visible, photoId }) {
+    const [id, setId] = useState(photoId);
     const [photosBD, setPhotosBD] = useState();
-    const [isLoad, setIsLoad] = useState(true)
-
+    const [isLoad, setIsLoad] = useState(true);
 
     const getPhotos = async () => {
 
@@ -22,6 +21,15 @@ export default function ModalPhoto({ visible }) {
         getPhotos()
     }, [])
 
+    const putPhoto = async () => {
+        await api.put('/user', {
+            "user": {
+                "photo_id": id || photoId,
+            }
+        }).then(visible)
+        .catch(err => console.log('deu erro ' + err))
+    }
+
     const focar = (id, key) => {
         setId(key);
         if (key === id) {
@@ -33,7 +41,7 @@ export default function ModalPhoto({ visible }) {
 
         <View style={styles.container}>
 
-            <Loading visible />
+            <Loading visible={isLoad} />
 
             <TouchableOpacity
                 onPress={visible}
@@ -57,10 +65,10 @@ export default function ModalPhoto({ visible }) {
                         return (
                             <TouchableOpacity
                                 key={item.id}
-                                onPress={() => focar(id, 1)}
+                                onPress={() => focar(id, item.id)}
                                 style={{ alignContent: 'center', justifyContent: 'center' }}
                             >
-                                <View style={[styles.moodPress, id === 1 ? styles.activityBg : null]}>
+                                <View style={[styles.moodPress, id === item.id ? styles.activityBg : null]}>
                                     <Image
                                         style={styles.imgWrapper}
                                         source={{ uri: `${api.defaults.baseURL}${item.url}` }}
@@ -78,10 +86,10 @@ export default function ModalPhoto({ visible }) {
                         return (
                             <TouchableOpacity
                                 key={item.id}
-                                onPress={() => focar(id, 1)}
+                                onPress={() => focar(id, item.id)}
                                 style={{ alignContent: 'center', justifyContent: 'center' }}
                             >
-                                <View style={[styles.moodPress, id === 1 ? styles.activityBg : null]}>
+                                <View style={[styles.moodPress, id === item.id ? styles.activityBg : null]}>
                                     <Image
                                         style={styles.imgWrapper}
                                         source={{ uri: `${api.defaults.baseURL}${item.url}` }}
@@ -95,6 +103,9 @@ export default function ModalPhoto({ visible }) {
             </View>
 
             <TouchableOpacity
+                onPress={() => {
+                    putPhoto()
+                }}
                 style={styles.btn}
             >
                 <TextBold style={styles.btnText}>Confirmar</TextBold>

@@ -10,9 +10,7 @@ import styles from './style';
 
 export default function DailyStory({ navigation }) {
 
-  const { header, mood, activity } = mock;
-
-  const [modalVisible, setModalVisible] = useState(false);
+  const { header, mood } = mock;
 
   return (
     <>
@@ -24,7 +22,9 @@ export default function DailyStory({ navigation }) {
 
           <TouchableOpacity
             style={styles.goBack}
-            onPress={() => navigation.goBack()}
+            onPress={() => {
+              navigation.goBack();
+            }}
           >
 
             <ButtonTabBar
@@ -40,9 +40,9 @@ export default function DailyStory({ navigation }) {
 
           <Mood {...mood} />
 
-          <Activity {...activity} />
+          <Activity/>
 
-          <Footer onPress={() => navigation.goBack()} />
+          <Footer onPress={() => navigation.goBack()}/>
 
         </View>
 

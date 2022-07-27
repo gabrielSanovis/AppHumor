@@ -1,12 +1,33 @@
 import React from 'react';
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import { TextBold, TextRegular } from '../../../componentes/Text/index'
+import { TextBold, TextRegular } from '../../../componentes/Text/index';
+import api from '../../../services/api';
+import { array } from '../../DailyStoryScreen/components/Activity';
 
-
+const logout = (navigation) => {
+    navigation.reset({
+        index: 0,
+        routes: [{ name: 'LoginScreen' }]
+    })
+}
 
 export default function ModalLogout({ visible, onPress }) {
 
-    
+    const postLogout = async () => {
+        await api.post('/oauth/revoke', {
+            token: api.defaults.headers.common['Authorization'],
+            client_id: '3mGWGtxIEKyhq_HGG4cq6hsTOd_zn1SuTD3_cafjUPc',
+            client_secret: '389JLi1Nd6DQ_soCI85C57ueTlMZ_JR7pRq6SJ0GaB0',
+        })
+            .then(() => {
+                logout(onPress);
+                api.defaults.headers.common['Authorization'] = ""
+            })
+            .catch(err => console.log('deu erro ' + err))
+            .finally(() => console.log(api.defaults.headers.common['Authorization']))
+
+    }
+
 
     return (
 
@@ -27,7 +48,7 @@ export default function ModalLogout({ visible, onPress }) {
                     </TouchableOpacity>
 
                     <TouchableOpacity
-                        onPress={onPress}
+                        onPress={postLogout}
                     >
                         <TextBold style={[styles.mainText, styles.footerText]}>sim</TextBold>
                     </TouchableOpacity>

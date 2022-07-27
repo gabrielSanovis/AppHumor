@@ -7,17 +7,11 @@ import Header from './components/Header';
 import Contact from './components/Contact';
 import Buttons from './components/Buttons';
 
-const logout = (navigation) => {
-  navigation.reset({
-    index: 0,
-    routes: [{ name: 'LoginScreen' }]
-  })
-}
 
 export default function Home({ navigation }) {
-
   const [modalVisible, setModalVisible] = useState(false);
   const [mainPhoto, setMainPhoto] = useState('');
+  const [photoId, setPhotoId] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [gender, setGender] = useState('');
@@ -27,6 +21,7 @@ export default function Home({ navigation }) {
     await api.get('/user')
       .then((res) => {
         setMainPhoto(res?.data?.photo?.url)
+        setPhotoId(res?.data?.photo?.id)
         setName(res?.data?.name)
         setEmail(res?.data?.email)
         setGender(res?.data?.gender)
@@ -40,7 +35,9 @@ export default function Home({ navigation }) {
     getUser()
   }, []);
 
-  const birthdateFormat = `${birthdate.day + 1}/${birthdate.monthIndex + 1}/${birthdate.year}`;
+  
+
+  const birthdateFormat = `${birthdate.day}/${birthdate.monthIndex}/${birthdate.year}`;
 
   return (
     <View style={{ alignItems: 'center' }}>
@@ -53,7 +50,7 @@ export default function Home({ navigation }) {
       >
         <ModalLogout
           visible={() => setModalVisible(!modalVisible)}
-          onPress={() => logout(navigation)}
+          onPress={navigation}
         />
       </Modal>
 
@@ -68,15 +65,12 @@ export default function Home({ navigation }) {
             email: email,
             gender: gender,
             birthdate: birthdateFormat,
-            mainPhoto: mainPhoto
+            mainPhoto: mainPhoto,
+            photoId: photoId
           })
         }}
         onPressLogout={() => setModalVisible(true)}
       />
-
-
-
-
     </View>
   );
 }
