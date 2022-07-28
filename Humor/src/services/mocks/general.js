@@ -7,9 +7,9 @@ export const emojis = {
 }
 
 export const corETraducao = {
-    radiant: { cor: 'yellow', name: 'radiante'},
+    radiant: { cor: '#F1D907', name: 'radiante'},
     happy: { cor: '#E24B4B', name: 'feliz' },
-    ok: { cor: 'black', name: 'ok' },
+    ok: { cor: '#51514E', name: 'ok' },
     sad: { cor: '#4B75E2', name: 'mal' },
     terrible: { cor: '#4BE263', name: 'triste' }
 }

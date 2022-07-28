@@ -6,7 +6,7 @@ import { genderTranslate } from "../../../../services/mocks/general";
 import api from '../../../../services/api';
 
 
-export default function ContactInformation({ name, email, gender, birthdate, onPress }) {
+export default function ContactInformation({ name, email, gender, birthdate, onPress, selectionPhoto }) {
 
     const [show, setShow] = useState(false);
     const [selectionGender, setSelectionGender] = useState(gender);
@@ -93,7 +93,10 @@ export default function ContactInformation({ name, email, gender, birthdate, onP
 
             <TouchableOpacity
                 onPress={() => {
-                    onPress.goBack();
+                    onPress.navigate('MenuList', {
+                        selectionGender: selectionGender,
+                        selectionPhoto: selectionPhoto
+                    });
                     putGender();
                 }}
                 style={styles.btn}

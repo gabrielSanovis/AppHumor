@@ -31,6 +31,7 @@ export default function Profile({ route, navigation }) {
 
                 <ContactInformation
                     onPress={navigation}
+                    selectionPhoto={modalVisible}
                     name={name}
                     email={email}
                     birthdate={birthdate}

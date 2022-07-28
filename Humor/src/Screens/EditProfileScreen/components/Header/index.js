@@ -9,7 +9,7 @@ export default function Header({photoUrl, visible}) {
         <>
             <Image
                 style={styles.imgWrapper}
-                source={{ uri: `${api.defaults.baseURL}${photoUrl}` }}
+                source={{ uri: `${api.defaults.baseURL}${photoUrl}`}}
             />
 
 

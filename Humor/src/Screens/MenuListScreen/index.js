@@ -6,9 +6,11 @@ import { dateFormat } from '../../services/mocks/general';
 import Header from './components/Header';
 import Contact from './components/Contact';
 import Buttons from './components/Buttons';
+import Loading from '../../componentes/Loading';
 
 
-export default function Home({ navigation }) {
+export default function Home({ route, navigation }) {
+
   const [modalVisible, setModalVisible] = useState(false);
   const [mainPhoto, setMainPhoto] = useState('');
   const [photoId, setPhotoId] = useState('');
@@ -16,6 +18,9 @@ export default function Home({ navigation }) {
   const [email, setEmail] = useState('');
   const [gender, setGender] = useState('');
   const [birthdate, setBirthdate] = useState({});
+  const [isLoad, setIsLoad] = useState(true)
+
+  const {selectionGender, selectionPhoto} = route?.params || {};
 
   const getUser = async () => {
     await api.get('/user')
@@ -28,6 +33,7 @@ export default function Home({ navigation }) {
         setBirthdate(dateFormat(res?.data?.birthdate))
       })
       .catch(err => console.log('deu erro ' + err))
+      .finally(() => setIsLoad(false))
   }
 
 
@@ -35,12 +41,16 @@ export default function Home({ navigation }) {
     getUser()
   }, []);
 
+  useEffect(() => {
+    getUser()
+  }, [selectionGender, selectionPhoto]);
   
-
   const birthdateFormat = `${birthdate.day}/${birthdate.monthIndex}/${birthdate.year}`;
 
   return (
     <View style={{ alignItems: 'center' }}>
+
+      <Loading visible={isLoad}/>
 
       <Modal
         animationType='slide'
