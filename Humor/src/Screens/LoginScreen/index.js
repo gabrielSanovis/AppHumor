@@ -3,7 +3,6 @@ import {
     TextInput,
     TouchableOpacity,
     View,
-    Image,
     KeyboardAvoidingView,
     StatusBar
 } from 'react-native';
@@ -12,6 +11,8 @@ import PassWordInput from './LoginComponents/PassWordInput/index';
 import styles from './style.js';
 import Autenticacao from './autenticacao.js';
 import Loading from '../../componentes/Loading/index.js';
+import Header from './LoginComponents/header/index.js';
+
 
 const TelaLogin = ({ navigation }) => {
     const [email, setEmail] = useState('');
@@ -34,18 +35,7 @@ const TelaLogin = ({ navigation }) => {
             <Loading visible={isLoad} />
             <View style={styles.container}>
 
-                <Image
-                    source={require('../../../assets/login.png')}
-                    style={styles.ImageLogin}
-                />
-
-                <TextBold
-                    style={{ display: formatInvalid ? 'flex' : 'none' }}
-                >A formatação dos campos está errada.</TextBold>
-
-                <TextBold
-                    style={{ display: userInvalid ? 'flex' : 'none' }}
-                >Senha e/ou e-mail errados.</TextBold>
+                <Header formatInvalid={formatInvalid} userInvalid={userInvalid}/>
 
                 <TextInput
                     style={styles.input}

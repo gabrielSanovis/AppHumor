@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import { TextBold } from '../../../componentes/Text/index'
+import { View, Image, StyleSheet, TouchableOpacity, Modal } from 'react-native';
+import { TextBold, TextRegular } from '../../../componentes/Text/index'
 import ButtonTabBar from '../../../componentes/ButtonTabBar/index'
 import api from '../../../services/api';
 import Loading from '../../../componentes/Loading/index'
+
+
+export let putUrl = '';
+export let putId;
 export default function ModalPhoto({ visible, photoId }) {
     const [id, setId] = useState(photoId);
     const [photosBD, setPhotosBD] = useState();
     const [isLoad, setIsLoad] = useState(true);
+    const [inputInvalid, setInputInvalid] = useState(false);
 
     const getPhotos = async () => {
 
@@ -21,99 +26,121 @@ export default function ModalPhoto({ visible, photoId }) {
         getPhotos()
     }, [])
 
-    const putPhoto = async () => {
-        await api.put('/user', {
-            "user": {
-                "photo_id": id || photoId,
-            }
-        }).then(visible)
-        .catch(err => console.log('deu erro ' + err))
-    }
-
-    const focar = (id, key) => {
+    const focar = (id, key, url) => {
         setId(key);
+        putUrl = url;
+        putId = key
         if (key === id) {
-            setId(0)
+            putId = photoId
+            setId(0);
+            putUrl = '';
         }
     }
+
     return (
 
-
-        <View style={styles.container}>
-
-            <Loading visible={isLoad} />
-
-            <TouchableOpacity
-                onPress={visible}
-                style={styles.goBack}
+        <>
+            <Modal
+                animationType='fade'
+                transparent={true}
+                visible={inputInvalid}
+                onRequestClose={() => setInputInvalid(!inputInvalid)}
             >
-                <ButtonTabBar
-                    nome="chevron-left"
-                    tamanho={20}
-                    cor={'#304FFE'}
-                    sizeBackground={36}
 
-                />
-            </TouchableOpacity>
+                <View style={styles.containerSecond}>
+                    <View style={styles.background}>
 
-            <TextBold style={styles.title}>Selecione a foto de perfil</TextBold>
+                        <View>
+                            <TextBold style={[styles.mainText, styles.headerText]}>Atenção</TextBold>
+                            <TextRegular style={styles.aboutHeaderText}>Selecione uma foto</TextRegular>
+                        </View>
 
-            <View style={styles.imgGroup}>
-                <View style={styles.lineWrapper}>
-
-                    {photosBD?.slice(0, 3).map(item => {
-                        return (
+                        <View style={styles.footer}>
                             <TouchableOpacity
-                                key={item.id}
-                                onPress={() => focar(id, item.id)}
-                                style={{ alignContent: 'center', justifyContent: 'center' }}
+                                onPress={() => setInputInvalid(!inputInvalid)}
                             >
-                                <View style={[styles.moodPress, id === item.id ? styles.activityBg : null]}>
-                                    <Image
-                                        style={styles.imgWrapper}
-                                        source={{ uri: `${api.defaults.baseURL}${item.url}` }}
-                                    />
-
-                                </View>
+                                <TextBold style={[styles.mainText, styles.footerText]}>ok</TextBold>
                             </TouchableOpacity>
-                        );
-                    })}
 
+                        </View>
+                    </View>
+                </View>
+            </Modal>
+
+            <View style={styles.container}>
+
+                <Loading visible={isLoad} />
+
+                <TouchableOpacity
+                    onPress={visible}
+                    style={styles.goBack}
+                >
+                    <ButtonTabBar
+                        nome="remove"
+                        tamanho={20}
+                        cor={'#304FFE'}
+                        sizeBackground={36}
+
+                    />
+                </TouchableOpacity>
+
+                <TextBold style={styles.title}>Selecione a foto de perfil</TextBold>
+
+                <View style={styles.imgGroup}>
+                    <View style={styles.lineWrapper}>
+
+                        {photosBD?.slice(0, 3).map(item => {
+                            return (
+                                <TouchableOpacity
+                                    key={item.id}
+                                    onPress={() => focar(id, item.id, item.url)}
+                                    style={{ alignContent: 'center', justifyContent: 'center' }}
+                                >
+                                    <View style={[styles.moodPress, id === item.id ? styles.activityBg : null]}>
+                                        <Image
+                                            style={styles.imgWrapper}
+                                            source={{ uri: `${api.defaults.baseURL}${item.url}` }}
+                                        />
+
+                                    </View>
+                                </TouchableOpacity>
+                            );
+                        })}
+
+                    </View>
+
+                    <View style={styles.lineWrapper}>
+                        {photosBD?.slice(3, 6).map(item => {
+                            return (
+                                <TouchableOpacity
+                                    key={item.id}
+                                    onPress={() => focar(id, item.id, item.url)}
+                                    style={{ alignContent: 'center', justifyContent: 'center' }}
+                                >
+                                    <View style={[styles.moodPress, id === item.id ? styles.activityBg : null]}>
+                                        <Image
+                                            style={styles.imgWrapper}
+                                            source={{ uri: `${api.defaults.baseURL}${item.url}` }}
+                                        />
+
+                                    </View>
+                                </TouchableOpacity>
+                            );
+                        })}
+                    </View>
                 </View>
 
-                <View style={styles.lineWrapper}>
-                    {photosBD?.slice(3, 6).map(item => {
-                        return (
-                            <TouchableOpacity
-                                key={item.id}
-                                onPress={() => focar(id, item.id)}
-                                style={{ alignContent: 'center', justifyContent: 'center' }}
-                            >
-                                <View style={[styles.moodPress, id === item.id ? styles.activityBg : null]}>
-                                    <Image
-                                        style={styles.imgWrapper}
-                                        source={{ uri: `${api.defaults.baseURL}${item.url}` }}
-                                    />
+                <TouchableOpacity
+                    onPress={
+                        putUrl ? visible : () => setInputInvalid(!inputInvalid)
+                    }
+                    style={styles.btn}
+                >
+                    <TextBold style={styles.btnText}>Confirmar</TextBold>
+                </TouchableOpacity>
 
-                                </View>
-                            </TouchableOpacity>
-                        );
-                    })}
-                </View>
             </View>
-
-            <TouchableOpacity
-                onPress={() => {
-                    putPhoto()
-                }}
-                style={styles.btn}
-            >
-                <TextBold style={styles.btnText}>Confirmar</TextBold>
-            </TouchableOpacity>
-
-        </View>
-
-
+        </>
     );
 }
 
@@ -178,5 +205,43 @@ const styles = StyleSheet.create({
         borderColor: 'rgba(48, 79, 254, 0)',
 
     },
+
+    containerSecond: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100%',
+        backgroundColor: 'rgba(0, 0, 0, .1)'
+    },
+    background: {
+        backgroundColor: 'white',
+        width: '90%',
+        height: '23%',
+        borderRadius: 25,
+        padding: 20,
+        justifyContent: 'space-between'
+    },
+    mainText: {
+        color: 'black'
+    },
+    footerText: {
+        textTransform: 'uppercase',
+        fontSize: 18,
+        lineHeight: 27,
+    },
+    headerText: {
+        fontSize: 24,
+        lineHeight: 36
+    },
+    aboutHeaderText: {
+        color: '#969696',
+        fontSize: 20,
+        lineHeight: 30,
+       
+    },
+    footer: {
+        flexDirection: 'row',
+        alignSelf: 'center',
+        justifyContent: 'space-between'
+    }
 
 })

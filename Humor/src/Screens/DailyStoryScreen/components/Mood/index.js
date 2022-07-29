@@ -16,6 +16,7 @@ export default function Mood() {
         }else {
             moodNameId = mock.mood[indx].nameId;
         }
+        console.log(moodNameId)
     }
 
     return (

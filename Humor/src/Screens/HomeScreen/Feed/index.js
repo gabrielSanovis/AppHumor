@@ -22,6 +22,14 @@ export default function Feed({ navigation }) {
     useEffect(() => {
         getDailyEntries();
     }, [])
+    
+    useEffect(() => {
+        const atualiza = navigation.addListener('focus', () => {
+            setIsLoad(true);
+            getDailyEntries();
+        })
+    }, [])
+
 
     const renderItem = ({ item }) => (
         <FlatListComponent
@@ -47,7 +55,7 @@ export default function Feed({ navigation }) {
             <StatusBar barStyle={'dark-content'} backgroundColor='white' />
             <FlatList
                 style={{ flex: 1 }}
-                data={moods}
+                data={moods?.sort((now, next) => (now.id < next.id) ? 1 : -1 )}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
                 ListEmptyComponent={HomeEmpty}
