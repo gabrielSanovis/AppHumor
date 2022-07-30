@@ -6,7 +6,7 @@ import ContactInformation from './components/ContactInformation';
 import styles from './style';
 
 export default function Profile({ route, navigation }) {
-    const { name, email, gender, birthdate, mainPhoto, photoId } = route.params;
+    const { name, email, gender, birthdate, photoId } = route.params;
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
@@ -24,10 +24,10 @@ export default function Profile({ route, navigation }) {
                     visible={modalVisible}
                     onRequestClose={() => setModalVisible(!modalVisible)}
                 >
-                    <ModalPhoto visible={() => setModalVisible(!modalVisible)} photoId={photoId}/>
+                    <ModalPhoto visible={() => setModalVisible(!modalVisible)} photoId={photoId} back={navigation}/>
                 </Modal>
 
-                <Header photoUrl={mainPhoto} visible={() => setModalVisible(true)} />
+                <Header visible={() => setModalVisible(true)} />
 
                 <ContactInformation
                     onPress={navigation}

@@ -6,7 +6,7 @@ import api from "../../../../services/api";
 import Loading from "../../../../componentes/Loading";
 import { putUrl } from "../../Modal/ModalPhoto";
 
-export default function Header({photoUrl, visible}) {
+export default function Header({visible}) {
     const [ isLoad, setIsLoad] = useState(true);
     const [ mainPhoto, setMainPhoto] = useState('')
 
@@ -30,7 +30,7 @@ export default function Header({photoUrl, visible}) {
         <>
             <Image
                 style={styles.imgWrapper}
-                source={{ uri: `${api.defaults.baseURL}${putUrl || photoUrl}`}}
+                source={{ uri: `${api.defaults.baseURL}${putUrl || mainPhoto}`}}
             />
 
 

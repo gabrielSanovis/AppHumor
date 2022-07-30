@@ -41,20 +41,20 @@ export default function Home({ navigation }) {
 
   useEffect(() => {
     const atualiza = navigation.addListener('focus', () => {
-        setIsLoad(true);
-        getUser();
+      setIsLoad(true);
+      getUser();
     })
-}, [])
-  
+  }, [])
+
   const birthdateFormat = `${birthdate.day}/${birthdate.monthIndex}/${birthdate.year}`;
 
   return (
     <View style={{ alignItems: 'center' }}>
 
-      <Loading visible={isLoad}/>
+      <Loading visible={isLoad} />
 
       <Modal
-        animationType='slide'
+        animationType='fade'
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => setModalVisible(!modalVisible)}

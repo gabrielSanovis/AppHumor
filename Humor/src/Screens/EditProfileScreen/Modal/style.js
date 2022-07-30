@@ -61,7 +61,6 @@ const styles = StyleSheet.create({
         borderColor: 'rgba(48, 79, 254, 0)',
 
     },
-
 })
 
 export default styles;
