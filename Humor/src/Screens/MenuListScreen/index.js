@@ -9,7 +9,7 @@ import Buttons from './components/Buttons';
 import Loading from '../../componentes/Loading';
 
 
-export default function Home({ route, navigation }) {
+export default function Home({ navigation }) {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [mainPhoto, setMainPhoto] = useState('');
@@ -19,8 +19,6 @@ export default function Home({ route, navigation }) {
   const [gender, setGender] = useState('');
   const [birthdate, setBirthdate] = useState({});
   const [isLoad, setIsLoad] = useState(true)
-
-  const {selectionGender, selectionPhoto} = route?.params || {};
 
   const getUser = async () => {
     await api.get('/user')
@@ -42,18 +40,21 @@ export default function Home({ route, navigation }) {
   }, []);
 
   useEffect(() => {
-    getUser()
-  }, [selectionGender, selectionPhoto]);
-  
+    const atualiza = navigation.addListener('focus', () => {
+      setIsLoad(true);
+      getUser();
+    })
+  }, [])
+
   const birthdateFormat = `${birthdate.day}/${birthdate.monthIndex}/${birthdate.year}`;
 
   return (
     <View style={{ alignItems: 'center' }}>
 
-      <Loading visible={isLoad}/>
+      <Loading visible={isLoad} />
 
       <Modal
-        animationType='slide'
+        animationType='fade'
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => setModalVisible(!modalVisible)}

@@ -10,12 +10,7 @@ const styles = StyleSheet.create({
     height: '100%',
     alignItems: 'center',
   },
-  ImageLogin: {
-    width: '54%',
-    height: 228,
-    marginBottom: '7%',
-    marginTop: 94
-  },
+  
   input: {
     width: '75%',
     height: 46,

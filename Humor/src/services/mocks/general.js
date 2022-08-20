@@ -10,8 +10,8 @@ export const corETraducao = {
     radiant: { cor: '#F1D907', name: 'radiante'},
     happy: { cor: '#E24B4B', name: 'feliz' },
     ok: { cor: '#51514E', name: 'ok' },
-    sad: { cor: '#4B75E2', name: 'mal' },
-    terrible: { cor: '#4BE263', name: 'triste' }
+    sad: { cor: '#4BE263', name: 'triste' },
+    terrible: { cor: '#4B75E2', name: 'acabado' }
 }
 
 const monthName = new Array("janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "outubro", "novembro", "dezembro");
@@ -20,7 +20,7 @@ export const dateFormat = (dateInitial) => {
     const date = new Date(dateInitial);
     const hh = date.getHours();
     const mm = date.getMinutes();
-    const dd = date.getDate() + 1;
+    const dd = date.getDate();
     const month = date.getMonth() + 1;
     const dateList = {
         hora: hh < 10 ? `0${hh}` : hh,

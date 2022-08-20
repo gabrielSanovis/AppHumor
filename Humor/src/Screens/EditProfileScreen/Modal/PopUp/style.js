@@ -1,22 +1,7 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    activityBox: {
-        borderColor: 'black',
-        width: 356,
-        height: 480,
-        borderWidth: 1,
-        borderRadius: 20,
-        marginTop: 50,
-        paddingVertical: 70,
-        paddingHorizontal: 41,
-        justifyContent: 'space-between',
-    },
-    activityGroup: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-    container: {
+    containerSecond: {
         alignItems: 'center',
         justifyContent: 'center',
         height: '100%',
@@ -45,7 +30,8 @@ const styles = StyleSheet.create({
     aboutHeaderText: {
         color: '#969696',
         fontSize: 20,
-        lineHeight: 30
+        lineHeight: 30,
+
     },
     footer: {
         flexDirection: 'row',

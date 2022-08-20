@@ -1,11 +1,6 @@
-const monthName = new Array("janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "outubro", "novembro", "dezembro")
-const now = new Date;
-
 const mock = {
     header: {
-        title: 'Como você está?',
-        date: `Hoje, ${now.getDate()} de ${monthName[now.getMonth()]}`,
-        hour: `${now.getHours()}:${now.getMinutes()}`
+        title: 'Como você está?'
     },
     mood: [
         {
@@ -41,47 +36,47 @@ const mock = {
     ],
     activity: [
         {
-            id:1,
+            id: 1,
             name: 'esporte',
             icone: 'soccer-field'
         },
         {
-            id:2, 
+            id: 2,
             name: 'compras',
             icone: 'cart'
         },
         {
-            id:3,
+            id: 3,
             name: 'descanso',
-            icone: 'bed'  
+            icone: 'bed'
         },
         {
-            id:4,
+            id: 4,
             name: 'festa',
             icone: 'party-popper'
         },
         {
-            id:5,
+            id: 5,
             name: 'filmes e séries',
             icone: 'popcorn',
         },
         {
-            id:6,
+            id: 6,
             name: 'boa refeição',
             icone: 'noodles'
         },
         {
-            id:7,
+            id: 7,
             name: 'jogos',
             icone: 'google-controller'
         },
         {
-            id:8,
+            id: 8,
             name: 'encontro',
             icone: 'cards-playing-heart-multiple-outline'
         },
         {
-            id:9,
+            id: 9,
             name: 'cozinhar',
             icone: 'egg-fried'
         },

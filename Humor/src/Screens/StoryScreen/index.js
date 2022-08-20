@@ -8,13 +8,15 @@ import { TextRegular, TextBold } from '../../componentes/Text/index';
 import api from '../../services/api';
 import Loading from '../../componentes/Loading';
 import { emojis, corETraducao } from '../../services/mocks/general';
+import BtnGoBack from '../../componentes/goBackBtn';
+import Header from './components/Header';
 
 
 export default function StoryScreen({ route, navigation }) {
     const { id, createdAt, mood, activities } = route.params;
-    const [ description, setDescription ] = useState()
-    const [ isLoad, setIsLoading ] = useState(true)
-    
+    const [description, setDescription] = useState()
+    const [isLoad, setIsLoading] = useState(true)
+
     const getDailyEntry = async () => {
         await api
             .get(`/daily_entries/${id}`)
@@ -32,45 +34,21 @@ export default function StoryScreen({ route, navigation }) {
     return (
         <View style={styles.container}>
             <Loading visible={isLoad} />
-            <TouchableOpacity
-                onPress={() => {
-                    navigation.goBack()
-                }}
-                style={styles.goBack}
-            >
 
-                <ButtonTabBar
-                    nome="chevron-left"
-                    tamanho={20}
-                    cor={'#304FFE'}
-                    sizeBackground={36}
+            <BtnGoBack back={navigation} iconName={"chevron-left"} />
 
-                />
-            </TouchableOpacity>
-
-                
-            <View style={styles.headerWrapper}>
-
-                <DateItem
-                    date={createdAt}
-                />
-
-                <Image
-                    source={emojis[mood]}
-                    style={styles.imgWrapper}
-                />
-
-                <TextBold style={[styles.humorText, { color: corETraducao[mood]?.cor }]}>
-                    {corETraducao[mood]?.name}
-                </TextBold>
-            </View>
+            <Header
+                name={corETraducao[mood]?.name}
+                cor={corETraducao[mood]?.cor}
+                emoji={emojis[mood]}
+                createdAt={createdAt}
+            />
 
             <IconContext
                 activity={activities}
             />
 
             <View style={[styles.footerWrapper, styles.elevation]}>
-                
                 <TextRegular style={styles.footerText} >{description}</TextRegular>
             </View>
         </View>
